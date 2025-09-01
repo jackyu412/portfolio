@@ -2,52 +2,48 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="Jack Yu – Contact" description="Contact Jack Yu – Caltech physics student. Get in touch for research, collaboration, or creative projects.">
-    <div class = "content-wrapper">
-         <section class="block" id="contact">
-    <h2>Contact</h2>
-    <p>You can reach me at:</p>
-
-    <p>
-      <span
-        id="email-toggle"
-        onclick="
+<Layout title="Jack Yu">
+  <div class="content-wrapper">
+    <section class="block" id="contact">
+      <h2>Contact</h2>
+      <p>You can reach me at:
+        <span
+          id="email-toggle"
+          onclick="
           const email = document.getElementById('email-address');
           email.style.opacity = email.style.opacity === '1' ? '0' : '1';
         "
-        onmouseenter="
+          onmouseenter="
           this.style.transform = 'translateY(-1px)';
           this.style.opacity = '0.7';
         "
-        onmouseleave="
+          onmouseleave="
           this.style.transform = 'translateY(0)';
           this.style.opacity = '1';
           document.getElementById('email-address').style.opacity = '0';
         "
-        style="
+          style="
           cursor: pointer;
           color: dodgerblue;
           font-style: italic;
           transition: all 0.2s ease;
           display: inline-block;
         "
-      >
-        Click to reveal email
-      </span>
+        >
+          Click to reveal email
+        </span>
 
-      <span
-        id="email-address"
-        style="
+        <span
+          id="email-address"
+          style="
           margin-left: 0.5rem;
           opacity: 0;
           transition: opacity 0.2s ease;
         "
-      >
-        jackyu [at] caltech [dot] edu
-      </span>
-    </p>
-  </section>
-
-    </div>
- 
+        >
+          jackyu [at] caltech [dot] edu
+        </span>
+        </p>
+    </section>
+  </div>
 </Layout>

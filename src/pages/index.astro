@@ -7,48 +7,71 @@ import Lightbox from "../components/Lightbox.jsx";
   title="Jack Yu – Portfolio"
   description="Portfolio of Jack Yu, Caltech physics student, photonics researcher, and creative. Explore research, creative work, and resume."
 >
-  <div class="content-wrapper">
-    <figure class="bio-figure">
-      <Lightbox
-        src="images/fields.jpg"
-        alt="2 layer Printmaking showing wave/particle duality throughout history."
-        client:load
-      />
-      <figcaption><em>Fields</em> (2024) — Artwork by Jack Yu</figcaption>
-      <figcaption>
-        1st layer: Phototransfer of historical lithograph showing Ray/Particle
-        model of light.
-      </figcaption>
-      <figcaption>
-        2nd Layer: Computer generated Inkjet print showing interference pattern
-        — Wave model of light.
-      </figcaption>
-    </figure>
-
-    <!-- About Me Block -->
+  <div
+    class="content-wrapper"
+    style="max-width: 1000px; margin: 2rem auto; padding: 2rem;"
+  >
     <section class="block about" id="about">
+      <img
+        src="/images/headshot.JPG"
+        alt="Jack Yu professional headshot"
+        class="headshot"
+      />
+      
+
       <h2>About Me</h2>
       <p>
         I’m Jack Yu, a student studying physics at Caltech with a growing
-        interest in the applications of quantum computing and photonics. I've
-        had 2 summers of experience working in a photonics R&D lab at Sandia
-        National Labs under Dr. Darwin Serkland and Dr. Alejandro Griñe.
-<p>I have experience with:</p>
-<ul>
-  <li>The testing and characterization of VCSELs and edge-emitting lasers</li>
-  <li>Modeling and making custom optomechanical parts using manual lathe, mill, CNC machining, and 3D printing</li>
-  <li>Setting up an ECDL (External Cavity Diode Laser) to test effectiveness of AR coatings</li>
-  <li>KiCad, SolidWorks, Spyder, 
-    <span class="latex">L<sup>a</sup>T<sub>e</sub>X</span>
-  </li>
-</ul>
-
-        <p>
-          I’m also part of Caltech’s NCAA swim team. In my free time, I satisfy my creative itch through printmaking and photography. 
-          I also love reading science fiction and philosophy books.
-        </p>
-
+        interest in quantum computing and photonics. I've had 2 summers of
+        experience working in a photonics R&D lab at Sandia National Labs under
+        Dr. Darwin Serkland and Dr. Alejandro Griñe.
       </p>
+
+      <p>I have experience with:</p>
+      <ul>
+        <li>
+          The testing and characterization of VCSELs and edge-emitting lasers
+        </li>
+        <li>
+          Modeling and making custom optomechanical parts using manual lathe,
+          mill, CNC machining, and 3D printing
+        </li>
+        <li>
+          Setting up an ECDL (External Cavity Diode Laser) to test effectiveness
+          of AR coatings
+        </li>
+        <li>
+          KiCad, SolidWorks, Spyder, <span class="latex"
+            >L<sup>a</sup>T<sub>e</sub>X</span>
+        </li>
+      </ul>
+<img src="/images/selfie.jpg" alt="Jack Yu in the lab" class="selfie" />
+      <p>
+        I’m also part of Caltech’s NCAA swim team. In my free time, I satisfy my
+        creative itch through printmaking and photography. I also love reading
+        science fiction and philosophy books.
+      </p>
+      
+    </section>
+
+    <!-- Artwork Block -->
+    <section class="block" id="artwork">
+      <figure class="bio-figure">
+        <Lightbox
+          src="images/fields.jpg"
+          alt="2 layer Printmaking showing wave/particle duality throughout history."
+          client:load
+        />
+        <figcaption><em>Fields</em> (2024) — Artwork by Jack Yu</figcaption>
+        <figcaption>
+          1st layer: Phototransfer of historical lithograph showing Ray/Particle
+          model of light.
+        </figcaption>
+        <figcaption>
+          2nd Layer: Computer generated Inkjet print showing interference
+          pattern — Wave model of light.
+        </figcaption>
+      </figure>
     </section>
   </div>
 </Layout>
