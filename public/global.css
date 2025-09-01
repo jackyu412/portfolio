@@ -100,8 +100,7 @@ main {
     color: #333;
     text-decoration: none;
     padding: 0.25rem 0.5rem;
-    border-radius: 0.25rem;
-    transition: background 0.2s ease;
+    border-radius: 0.25rem;   
 }
 
 .nav a:hover {
@@ -109,7 +108,7 @@ main {
 }
 
 .block {
-    padding: 2rem 2rem;
+    padding: 0rem 0rem;
     border-bottom: 1px solid #ddd;
 }
 /* Sidebar / floating links - desktop */
