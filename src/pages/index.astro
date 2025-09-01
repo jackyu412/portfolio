@@ -7,10 +7,30 @@ import Lightbox from "../components/Lightbox.jsx";
   title="Jack Yu – Portfolio"
   description="Portfolio of Jack Yu, Caltech physics student, photonics researcher, and creative. Explore research, creative work, and resume."
 >
+
   <div
     class="content-wrapper"
-    style="max-width: 1000px; margin: 2rem auto; padding: 2rem;"
+    style="max-width: 1000px; margin: 1rem auto; padding: 2rem;"
   >
+  <!-- Artwork Block -->
+    <section class="block" id="artwork">
+      <figure class="bio-figure">
+        <Lightbox
+          src="images/fields.jpg"
+          alt="2 layer Printmaking showing wave/particle duality throughout history."
+          client:load
+        />
+        <figcaption><em>Fields</em> (2024) — Artwork by Jack Yu</figcaption>
+        <figcaption>
+          1st layer: Phototransfer of historical lithograph showing Ray/Particle
+          model of light.
+        </figcaption>
+        <figcaption>
+          2nd Layer: Computer generated Inkjet print showing interference
+          pattern — Wave model of light.
+        </figcaption>
+      </figure>
+    </section>
     <section class="block about" id="about">
       <img
         src="/images/headshot.JPG"
@@ -54,24 +74,6 @@ import Lightbox from "../components/Lightbox.jsx";
       
     </section>
 
-    <!-- Artwork Block -->
-    <section class="block" id="artwork">
-      <figure class="bio-figure">
-        <Lightbox
-          src="images/fields.jpg"
-          alt="2 layer Printmaking showing wave/particle duality throughout history."
-          client:load
-        />
-        <figcaption><em>Fields</em> (2024) — Artwork by Jack Yu</figcaption>
-        <figcaption>
-          1st layer: Phototransfer of historical lithograph showing Ray/Particle
-          model of light.
-        </figcaption>
-        <figcaption>
-          2nd Layer: Computer generated Inkjet print showing interference
-          pattern — Wave model of light.
-        </figcaption>
-      </figure>
-    </section>
+    
   </div>
 </Layout>
