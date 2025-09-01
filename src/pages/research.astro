@@ -1,0 +1,105 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Lightbox from "../components/Lightbox.jsx"; // Make sure this path is correct
+---
+
+<Layout
+  title="Jack Yu – Research"
+  description="Research projects by Jack Yu, including photonics, lasers, and quantum computing."
+  favicon="/favicon-external-tab.ico"
+>
+  <div class="content-wrapper">
+    <section class="research-list">
+      <div class="research-card">
+        <h3>Summer 2025</h3>
+        <p>
+          I worked on a mechanical fixture to AR coat a Lithium Niobate
+          waveguide, and built a U-bench external cavity setup. At the same
+          time, I set up a raspberry Pi near-infrared camera system with
+          autofocus, which is more convenient that using an infrared viewer.
+        </p>
+        <p>Click on images to enlarge.</p>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
+          <!-- AR coating fixture -->
+          <figure class="bio-figure">
+            <Lightbox
+              src="/images/AR-coat.png"
+              alt="AR coating fixture SolidWorks model"
+              client:load
+            />
+            <figcaption>AR coating fixture (SolidWorks)</figcaption>
+          </figure>
+
+          <figure class="bio-figure">
+            <Lightbox
+              src="/images/AR-coat-irl.jpg"
+              alt="Tangible AR coating fixture"
+              client:load
+            />
+            <figcaption>Tangible AR coating fixture</figcaption>
+          </figure>
+
+          <!-- U-bench SolidWorks image -->
+          <figure class="bio-figure">
+            <Lightbox
+              src="/images/U-bench.png"
+              alt="U-bench SolidWorks model, view 1"
+              client:load
+            />
+            <figcaption>U-bench model (SolidWorks, view 1)</figcaption>
+          </figure>
+        </div>
+      </div>
+      <!-- Senior Project 2025 -->
+      <div class="research-card">
+        <h3>Senior Project – Fall 2025</h3>
+        <p>
+          My senior project was to set up an External Cavity Diode Laser (ECDL),
+          to ultimately characterize AR coatings on gain chips. Along the way, I
+          machined many custom optomechanical components, including flexure
+          attachments, and a custom mount for AR coating in a Veeco Spector.
+        </p>
+        <p>Click on image to enlarge.</p>
+
+        <figure class="bio-figure">
+          <Lightbox
+            src="/images/250512vFJACKSENIORPROJECTPPT_40x30.jpg"
+            alt="Senior Project Summary Slide"
+            client:load
+          />
+          <figcaption>Senior Project Summary Slide (Summer 2025)</figcaption>
+          <figcaption>
+            <a
+              href="/images/250512vFJACKSENIORPROJECTPPT_40x30.png"
+              target="_blank"
+              style="color: dodgerblue; text-decoration: underline;"
+            >
+              Open full-resolution image
+            </a>
+          </figcaption>
+        </figure>
+      </div>
+
+      <!-- 2024 Etalon Summary -->
+      <div class="research-card">
+        <h3>Etalon Characterization & Summary 2024 Research Summary</h3>
+        <p>
+          Conducted Fabry–Pérot etalon measurements and compiled a general
+          summary of my 2024 research into this slideshow, which I presented to
+          my department.
+        </p>
+        <p>My data and experiemtal setup was presented to DARPA.</p>
+        <div class="research-links">
+          <a
+            href="/documents/2407JUL24_Etalon_and_General_Summary.pdf"
+            target="_blank"
+            style="color: dodgerblue; text-decoration: underline;"
+          >
+            View PDF Slides
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>

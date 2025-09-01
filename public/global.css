@@ -1,0 +1,393 @@
+@font-face {
+    font-family: 'Latin Modern Roman';
+    src: url('/fonts/lmroman10-regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Latin Modern Roman';
+    src: url('/fonts/lmroman10-bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Latin Modern Roman';
+    src: url('/fonts/lmroman10-italic.otf') format('opentype');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Latin Modern Roman';
+    src: url('/fonts/lmroman10-bolditalic.otf') format('opentype');
+    font-weight: 700;
+    font-style: italic;
+}
+
+
+.index-image {
+    display: block;
+    max-width: 1000px;
+    width: 100%;
+    height: auto;
+    margin: 1.5rem auto;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+}
+
+.content-wrapper {
+    background-color: rgba(255 255 255 / 0.85);
+    padding: 1.5rem 2rem;
+    border-radius: 0.5rem;
+    max-width: 1000px;
+    margin: 2rem auto;
+    box-sizing: border-box;
+}
+
+.bio-figure {
+    text-align: center;
+    margin: 2rem auto;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.bio-figure figcaption {
+    margin-top: 0.5rem;
+    font-style: normal;
+    text-shadow: 0 0 4px rgba(255 255 255 / 0.85);
+}
+
+body {
+    font-family: 'Latin Modern Roman', Georgia, serif;
+    margin: 0;
+    padding: 0;
+    color: #111;
+    line-height: 1.6;
+
+    /* This is a pretty cool background image I made with css only! */
+    background:
+        linear-gradient(90deg, #b0bec5 1px, transparent 1px),
+        linear-gradient(0deg, #b0bec5 1px, transparent 1px),
+        repeating-radial-gradient(circle at center, #90a4ae 1px, transparent 10px);
+    background-size: 50px 50px;
+    background-position: 0 0, 0 0, 0 0;
+    background-repeat: repeat;
+    background-blend-mode: darken;
+    background-color: #f0f4f8;
+}
+
+main {
+    max-width: 1000px;
+    margin: auto;
+    padding: 2rem 2rem;
+}
+
+.nav {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    background: #f0f0f0;
+    padding: 0.75rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid #ccc;
+    font-size: 0.9rem;
+}
+
+.nav a {
+    color: #333;
+    text-decoration: none;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    transition: background 0.2s ease;
+}
+
+.nav a:hover {
+    background: #ddd;
+}
+
+.block {
+    padding: 2rem 2rem;
+    border-bottom: 1px solid #ddd;
+}
+
+.floating-links {
+  position: sticky;
+  top: 2rem;              
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;          
+  align-items: flex-start;
+  width: 200px;           
+  flex-shrink: 0;
+  z-index: 1000;
+}
+
+.floating-links a {
+  display: block;
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.floating-links a:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+
+.about {
+  background: #e9eef5;
+  border: 1px solid #aab6c1; 
+  border-radius: 0.75rem;
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.1), 
+    inset 0 0 8px rgba(255, 255, 255, 0.6);
+  padding: 2rem 2.5rem;
+  transition: background-color 0.3s ease;
+}
+
+.hero {
+    background: #f4f4f4;
+    text-align: center;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+}
+
+.research,
+.creative,
+.code {
+    background: #fff;
+}
+
+.resume {
+    background: #f9f9f9;
+    text-align: center;
+}
+
+a {
+    color: dodgerblue;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h1,
+h2 {
+    margin-top: 0;
+}
+
+.footer {
+  text-align: center;
+  padding: 1rem 0;
+  position: relative;
+}
+
+.footer p {
+  position: relative;
+  display: inline-block;  
+  color: #000000;         
+  font-size: 0.9rem;
+  margin: 0;
+  z-index: 2;
+  padding: 0 0.4rem;
+}
+
+.footer p::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(240, 240, 240, 0.7); 
+  border-radius: 0.25em;
+  z-index: 1;
+  mix-blend-mode: normal; 
+}
+
+/* Goodreads stuff */
+
+.gr_custom_container_1751775134 {
+    max-width: 500px;
+    border: 1px solid gray;
+    border-radius: .75rem;
+    padding: 2rem;
+    background-color: #FFFFFF;
+    color: #000000;
+
+    /* Center horizontally */
+    margin: 2rem auto;
+}
+
+.gr_custom_header_1751775134 {
+    border-bottom: 1px solid gray;
+    width: 100%;
+    margin-bottom: 5px;
+    text-align: center;
+    font-size: 120%
+}
+
+.gr_custom_each_container_1751775134 {
+    /* customize each individual book container here */
+    width: 100%;
+    clear: both;
+    margin-bottom: 10px;
+    overflow: auto;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #aaa;
+}
+
+.gr_custom_book_container_1751775134 {
+    /* customize your book covers here */
+    overflow: hidden;
+    height: 60px;
+    float: left;
+    margin-right: 4px;
+    width: 39px;
+}
+
+.gr_custom_author_1751775134 {
+    /* customize your author names here */
+    font-size: 10px;
+}
+
+.gr_custom_tags_1751775134 {
+    /* customize your tags here */
+    font-size: 10px;
+    color: gray;
+}
+
+.gr_custom_rating_1751775134 {
+    /* customize your rating stars here */
+    float: right;
+}
+
+/* Responsive Nav */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-right: 1rem;
+  z-index: 200;
+}
+
+.nav-toggle-bar {
+  width: 1.8rem;
+  height: 0.22rem;
+  background: #333;
+  margin: 0.22rem 0;
+  border-radius: 2px;
+  display: block;
+  transition: all 0.3s;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+@media (max-width: 700px) {
+  .nav {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+  }
+  .nav-toggle {
+    display: flex;
+  }
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #f0f0f0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding: 0.5rem 1rem;
+    display: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    border-bottom: 1px solid #ccc;
+    z-index: 150;
+  }
+  .nav-links.open {
+    display: flex;
+  }
+  .nav-links a {
+    padding: 0.75rem 0;
+    width: 100%;
+    border-radius: 0;
+    border-bottom: 1px solid #e0e0e0;
+  }
+}
+
+.research-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.research-card {
+  background: #fff;
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  padding: 2rem;
+  border: 1px solid #e0e0e0;
+}
+
+.research-card h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.research-card ul {
+  margin: 0.5rem 0 1rem 1.2rem;
+  padding: 0;
+}
+
+.research-links {
+  margin-top: 1rem;
+}
+
+.research-links a.disabled {
+  color: #aaa;
+  pointer-events: none;
+  text-decoration: line-through;
+}
+
+
+.tex sub, .latex sub, .latex sup {
+    text-transform: uppercase;
+  }
+
+  .tex sub, .latex sub {
+    vertical-align: -0.5ex;
+    margin-left: -0.1667em;
+    margin-right: -0.125em;
+  }
+
+  .tex, .latex, .tex sub, .latex sub {
+    font-size: 1em;
+  }
+
+  .latex sup {
+    font-size: 0.85em;
+    vertical-align: 0.15em;
+    margin-left: -0.36em;
+    margin-right: -0.15em;
+  }

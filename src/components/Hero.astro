@@ -1,0 +1,25 @@
+---
+const { name = "Jack Yu", title = "Freshman at Caltech majoring in Physics" } = Astro.props;
+---
+
+<section class="hero">
+  <h1>{name}</h1>
+  <p>{title}</p>
+</section>
+
+<style>
+.hero {
+  text-align: center;
+  padding: 2rem 0 1rem 0;
+  font-family: 'Latin Modern Roman', serif;
+}
+.hero h1 {
+  margin: 0;
+  font-weight: 700;
+}
+.hero p {
+  margin: 0.5rem 0 0 0;
+  font-weight: 400;
+  font-style: italic;
+}
+</style>
