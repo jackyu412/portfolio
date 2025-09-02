@@ -38,11 +38,25 @@
 
 .content-wrapper {
     background-color: rgba(255 255 255 / 0.85);
-    padding: 1.5rem 2rem;
+    padding: 1rem 1.25rem;
     border-radius: 0.5rem;
     max-width: 1000px;
     margin: 2rem auto;
     box-sizing: border-box;
+}
+
+/* Adjust content box padding */
+.content-wrapper {
+    padding: 1rem 1.25rem;
+}
+
+main {
+    padding: 1.5rem 1.25rem;
+}
+
+@media (min-width: 1000px) {
+    .content-wrapper { padding: 1.25rem 1.5rem; }
+    main { padding: 1.75rem 1.5rem; }
 }
 
 .bio-figure {
@@ -142,6 +156,12 @@ main {
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
+/* Smaller floating link buttons */
+.floating-links a {
+  padding: 0.35rem 0.6rem;
+  font-size: 0.9rem;
+}
+
 /* Responsive: Mobile / small screens */
 @media (max-width: 900px) {
   /* Stack everything vertically */
@@ -163,6 +183,37 @@ main {
   .floating-links a {
     flex: 1 1 120px;  /* minimum size so buttons don’t shrink too much */
     text-align: center;
+    width: auto;
+    max-width: 48%;
+    padding: 0.35rem 0.6rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  }
+}
+
+/* Floating links: two per row on mobile, aligned left/right */
+@media (max-width: 900px) {
+  .floating-links {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .floating-links a {
+    flex: 0 0 calc(50% - 0.5rem);
+    max-width: calc(50% - 0.5rem);
+    text-align: center;
+  }
+}
+
+/* Revert mobile hamburger menu item size (padding) */
+@media (max-width: 700px) {
+  .nav-links a {
+    padding: 0.85rem 0.75rem;
+  }
+  .nav-links a:last-child {
+    border-bottom: none;
   }
 }
 
@@ -370,6 +421,11 @@ h2 {
   gap: 1.5rem;
 }
 
+/* CSS-only toggle binding for Nav.astro */
+#nav-toggle:checked ~ .nav-links {
+  display: flex;
+}
+
 @media (max-width: 700px) {
   .nav {
     flex-direction: row;
@@ -461,3 +517,52 @@ h2 {
     margin-left: -0.36em;
     margin-right: -0.15em;
   }
+
+/* Selection highlight */
+::selection {
+  background: #b3e5fc; /* light science blue */
+  color: #0b3954;
+}
+
+/* Science-themed cursor (fallback to default if not supported) */
+body {
+  cursor: crosshair;
+}
+
+/* Prevent horizontal layout shift due to scrollbar appearance */
+html {
+  scrollbar-gutter: stable both-edges;
+  overflow-y: scroll; /* fallback for browsers without scrollbar-gutter */
+}
+
+/* Creative page layout */
+.creative-layout {
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  gap: 2rem;
+}
+
+.creative-main {
+  flex: 1;
+}
+
+.creative-aside {
+  width: 260px;
+}
+
+@media (max-width: 900px) {
+  .creative-layout {
+    display: block;
+  }
+  .creative-aside {
+    width: 100%;
+    margin-top: 1rem;
+  }
+  .floating-links {
+    position: relative;
+    top: auto;
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

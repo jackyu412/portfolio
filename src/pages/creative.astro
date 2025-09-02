@@ -4,10 +4,10 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout title="Jack Yu – Creative" description="Creative works by Jack Yu, including music, printmaking, and more.">
 
-  <div style="display: flex; gap: 2rem;">
+  <div class="creative-layout">
 
-    <!-- Main content column -->
-    <div class="content-wrapper" style="flex: 1;">
+    <!-- Left: Main content column -->
+    <div class="content-wrapper creative-main">
       <section class="block" id="research">
         <h2>August 31, 2025</h2>
         <ul>
@@ -31,11 +31,9 @@ import Layout from '../layouts/Layout.astro';
       </section>
     </div>
 
-    <!-- Right sidebar -->
-    <div style="flex-shrink: 0; display: flex; flex-direction: column; gap: 1rem;">
-
-      <!-- Floating links container -->
-      <div class="floating-links" style="position: sticky; top: 2rem; width: 200px;">
+    <!-- Right: Sidebar -->
+    <aside class="creative-aside">
+      <div class="floating-links">
         <a href="/documents/Jack_Yu_Music_Resume.pdf" target="_blank" rel="noopener noreferrer">
           Music Resume
         </a>
@@ -44,7 +42,6 @@ import Layout from '../layouts/Layout.astro';
         </a>
       </div>
 
-      <!-- Goodreads widget - full width -->
       <div class="gr" style="width: 100%; min-width: 320px;">
         <div id="gr_custom_widget_1751775134">
           <div class="gr_custom_container_1751775134">
@@ -57,8 +54,7 @@ import Layout from '../layouts/Layout.astro';
           charset="utf-8">
         </script>
       </div>
-
-    </div>
+    </aside>
 
   </div>
 

@@ -3,8 +3,10 @@ const { name = "Jack Yu", title = "Freshman at Caltech majoring in Physics" } = 
 ---
 
 <section class="hero">
-  <h1>{name}</h1>
-  <p>{title}</p>
+  <a href="/" class="hero-link" aria-label="Go to homepage">
+    <h1>{name}</h1>
+    <p>{title}</p>
+  </a>
 </section>
 
 <style>
@@ -21,5 +23,13 @@ const { name = "Jack Yu", title = "Freshman at Caltech majoring in Physics" } = 
   margin: 0.5rem 0 0 0;
   font-weight: 400;
   font-style: italic;
+}
+.hero-link {
+  color: inherit;
+  text-decoration: none;
+  display: inline-block;
+}
+.hero-link:hover {
+  text-decoration: underline;
 }
 </style>
