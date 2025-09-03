@@ -2,6 +2,7 @@
 import Hero from '../components/Hero.astro';
 import Nav from '../components/Nav.astro';
 import { ViewTransitions } from 'astro:transitions';
+import Analytics from '@vercel/analytics/astro';
 
 // Accept title and description as props
 const { title = 'Jack Yu', description = 'Portfolio of Jack Yu – Physics student at Caltech, photonics researcher, and creative.' } = Astro.props;
@@ -31,5 +32,6 @@ const { title = 'Jack Yu', description = 'Portfolio of Jack Yu – Physics stude
     <footer class="footer">
       <p>© {new Date().getFullYear()} Jack Yu</p>
     </footer>
+    <Analytics />
   </body>
 </html>
