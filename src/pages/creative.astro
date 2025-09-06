@@ -61,13 +61,64 @@ import Layout from '../layouts/Layout.astro';
       <div class="gr" style="width: 100%; min-width: 320px;">
         <div id="gr_custom_widget_1751775134">
           <div class="gr_custom_container_1751775134">
-            <!-- widget content unchanged -->
+            <div class="gr_custom_header_1751775134">
+              <button onclick="loadBookshelf()" style="width: 100%; background: #f0f0f0; border: 1px solid #ccc; border-radius: 4px; padding: 8px 12px; font-size: 0.9em; cursor: pointer; font-family: inherit;">
+                📚 Load My Bookshelf
+              </button>
+            </div>
+            <div id="gr_custom_widget_1751775134_content">
+              <div class="gr_custom_each_container_1751775134">
+                <div class="gr_custom_author_1751775134" style="text-align: center; color: #666; font-style: italic;">
+                  Click above to see what I'm currently reading
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <script
-          src="https://www.goodreads.com/review/custom_widget/125669031.Jack's%20bookshelf:%20currently-reading?cover_position=left&cover_size=small&num_books=3&order=d&shelf=currently-reading&show_author=1&show_cover=1&show_rating=0&show_tags=1&show_title=1&sort=date_added&widget_bg_color=FFFFFF&widget_bg_transparent=&widget_border_width=1&widget_id=1751775134&widget_text_color=000000&widget_title_size=medium&widget_width=medium"
-          type="text/javascript"
-          charset="utf-8">
+        <script is:inline>
+          function loadBookshelf() {
+            const content = document.getElementById('gr_custom_widget_1751775134_content');
+            const button = document.querySelector('#gr_custom_widget_1751775134 button');
+            
+            if (content) {
+              content.innerHTML = '<div class="gr_custom_each_container_1751775134"><div class="gr_custom_author_1751775134">Loading books...</div></div>';
+            }
+            
+            if (button) {
+              button.textContent = '📚 Loading...';
+              button.disabled = true;
+            }
+            
+            // Remove existing script
+            const existingScript = document.querySelector('script[src*="goodreads.com"]');
+            if (existingScript) {
+              existingScript.remove();
+            }
+            
+            // Load new script
+            const script = document.createElement('script');
+            script.src = "https://www.goodreads.com/review/custom_widget/125669031.Jack's%20bookshelf:%20currently-reading?cover_position=left&cover_size=small&num_books=3&order=d&shelf=currently-reading&show_author=1&show_cover=1&show_rating=0&show_tags=1&show_title=1&sort=date_added&widget_bg_color=FFFFFF&widget_bg_transparent=&widget_border_width=1&widget_id=1751775134&widget_text_color=000000&widget_title_size=medium&widget_width=medium";
+            script.charset = "utf-8";
+            
+            script.onload = function() {
+              // Hide the button after successful load
+              if (button) {
+                button.style.display = 'none';
+              }
+            };
+            
+            script.onerror = function() {
+              if (content) {
+                content.innerHTML = '<div class="gr_custom_each_container_1751775134"><div class="gr_custom_author_1751775134">Unable to load bookshelf. <a href="https://www.goodreads.com/user/show/125669031-jack" target="_blank">View on Goodreads</a></div></div>';
+              }
+              if (button) {
+                button.textContent = '📚 Try Again';
+                button.disabled = false;
+              }
+            };
+            
+            document.head.appendChild(script);
+          }
         </script>
       </div>
     </aside>

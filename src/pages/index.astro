@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Lightbox from "../components/Lightbox.jsx";
+import Lightbox from "../components/Lightbox.tsx";
 ---
 
 <Layout
@@ -8,15 +8,13 @@ import Lightbox from "../components/Lightbox.jsx";
   description="Portfolio of Jack Yu, Caltech physics student, photonics researcher, and creative. Explore research, creative work, and resume."
 >
 
-  <div
-    class="content-wrapper"
-    style="max-width: 1000px; margin: 1rem auto; padding: 2rem;"
-  >
+  <div class="content-wrapper">
   <!-- Artwork Block -->
     <section class="block" id="artwork">
       <figure class="bio-figure">
         <Lightbox
-          src="images/fields.jpg"
+          src="images/fieldscompressed.jpg"
+          fullSizeSrc="images/fields.jpg"
           alt="2 layer Printmaking showing wave/particle duality throughout history."
           client:load
         />
@@ -33,8 +31,8 @@ import Lightbox from "../components/Lightbox.jsx";
     </section>
     <section class="block about" id="about">
       <img
-        src="/images/headshot.JPG"
-        alt="Jack Yu professional headshot"
+        src="/images/headshotcompressed.jpg"
+        alt="Jack Yu headshot"
         class="headshot"
       />
       
@@ -65,7 +63,7 @@ import Lightbox from "../components/Lightbox.jsx";
             >L<sup>a</sup>T<sub>e</sub>X</span>
         </li>
       </ul>
-<img src="/images/selfie.jpg" alt="Jack Yu in the lab" class="selfie" />
+<img src="/images/selfiecompressed.jpg" alt="Jack Yu in the lab" class="selfie" />
       <p>
         I’m also part of Caltech’s NCAA swim team. In my free time, I satisfy my
         creative itch through printmaking and photography. I also love reading

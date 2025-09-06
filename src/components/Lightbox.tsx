@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 
-export default function Lightbox({ src, alt }) {
+interface LightboxProps {
+  src: string;
+  alt: string;
+  fullSizeSrc?: string;
+}
+
+export default function Lightbox({ src, alt, fullSizeSrc }: LightboxProps) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -35,7 +41,7 @@ export default function Lightbox({ src, alt }) {
           }}
         >
           <img
-            src={src}
+            src={fullSizeSrc ? fullSizeSrc : src}
             alt={alt}
             loading="lazy"
             style={{ maxHeight: '90%', maxWidth: '90%', borderRadius: '0.75rem' }}

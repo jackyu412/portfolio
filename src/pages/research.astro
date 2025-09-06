@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Lightbox from "../components/Lightbox.jsx"; // Make sure this path is correct
+import Lightbox from "../components/Lightbox.tsx";
 ---
 
 <Layout
@@ -33,7 +33,7 @@ import Lightbox from "../components/Lightbox.jsx"; // Make sure this path is cor
 
           <figure class="bio-figure">
             <Lightbox
-              src="/images/AR-coat-irl.jpg"
+              src="/images/AR-coat-irl_compressed.jpg"
               alt="Tangible AR coating fixture"
               client:load
             />

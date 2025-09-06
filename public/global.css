@@ -524,9 +524,21 @@ h2 {
   color: #0b3954;
 }
 
-/* Science-themed cursor (fallback to default if not supported) */
+/* Default cursors */
 body {
-  cursor: crosshair;
+  cursor: auto;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+img:hover {
+  cursor: zoom-in;
+}
+
+button:hover {
+  cursor: pointer;
 }
 
 /* Prevent horizontal layout shift due to scrollbar appearance */
