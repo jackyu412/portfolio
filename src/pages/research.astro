@@ -10,8 +10,45 @@ import Lightbox from "../components/Lightbox.tsx";
 >
   <div class="content-wrapper">
     <section class="research-list">
+      <!-- Raspberry Pi Camera Noir Project -->
       <div class="research-card">
-        <h3>Summer 2025</h3>
+        <h3>September 2025 - Raspberry Pi Near-Infrared Imaging</h3>
+        <p>
+          Unsatisfied with the awkward usage of IR viewers, I developed a camera system using the Raspberry Pi Camera Module 3 Noir, which is built around the Sony IMX708 sensor. Unlike the standard Pi Camera, the Noir version lacks an infrared filter, enabling us to capture near-infrared light. This makes it especially useful for visualizing and aligning laser systems in the near-IR range, many of which would otherwise be invisible to the naked eye. Combined with autofocus and a compact integration, the setup provides a lightweight, portable, and eye-strain-free alternative to traditional infrared viewers. To operate the system, I used the libcam library to write a GUI in python.
+        </p>
+        <p>Click on images to enlarge.</p>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
+          <figure class="bio-figure">
+            <Lightbox src="/images/picam1.jpg" alt="Pi Camera Noir setup view 1" client:load />
+            <figcaption>Camera can be setup in many impossible angles</figcaption>
+          </figure>
+
+          <figure class="bio-figure">
+            <Lightbox src="/images/picam4.jpg" alt="Infrared imaging example" client:load />
+            <figcaption>3D printed articulating mount</figcaption>
+          </figure>
+
+          <figure class="bio-figure">
+            <Lightbox src="/images/picam2.jpg" alt="Pi Camera Noir setup view 2" client:load />
+            <figcaption>Display saves space</figcaption>
+          </figure>
+
+          <figure class="bio-figure">
+            <Lightbox src="/images/picam3.jpg" alt="Captured near-IR laser alignment" client:load />
+            <figcaption>Portable setup (at probe station)</figcaption>
+          </figure>
+
+          <figure class="bio-figure">
+            <Lightbox src="/images/picam5.jpg" alt="Compact Pi Noir camera integration" client:load />
+            <figcaption>Selfie taken with camera (12MP)</figcaption>
+          </figure>
+        </div>
+      </div>
+
+
+      <div class="research-card">
+        <h3>Snapshots from Summer 2025</h3>
         <p>
           I worked on a mechanical fixture to AR coat a Lithium Niobate
           waveguide, and built a U-bench external cavity setup. At the same
@@ -51,6 +88,8 @@ import Lightbox from "../components/Lightbox.tsx";
           </figure>
         </div>
       </div>
+
+
       <!-- Senior Project 2025 -->
       <div class="research-card">
         <h3>Senior Project – Fall 2025</h3>
