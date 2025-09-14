@@ -1,11 +1,9 @@
 ---
-import Hero from '../components/Hero.astro';
-import Nav from '../components/Nav.astro';
-import { ViewTransitions } from 'astro:transitions';
-import Analytics from '@vercel/analytics/astro';
+import Hero from "../components/Hero.astro";
+import Nav from "../components/Nav.jsx";
 
 // Accept title and description as props
-const { title = 'Jack Yu', description = 'Portfolio of Jack Yu – Physics student at Caltech, photonics researcher, and creative.' } = Astro.props;
+const { title = "Jack Yu", description = "Portfolio of Jack Yu" } = Astro.props;
 ---
 
 <html lang="en">
@@ -14,24 +12,21 @@ const { title = 'Jack Yu', description = 'Portfolio of Jack Yu – Physics stude
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="images/qwell.svg" type="image/svg" />
+    <link rel="icon" href="/images/qwell.svg" type="image/svg" />
     <link rel="stylesheet" href="/global.css" />
-    <style>
-      html, body { background-color: #f0f4f8; }
-    </style>
-  </head>
-  <body>
-    <ViewTransitions />
-    <header data-astro-transition-persist>
-      <Hero name="Jack Yu" title="Freshman at Caltech majoring in Physics" />
-      <Nav />
-    </header>
+  </head><body>
+    <Hero name="Jack Yu" title="Freshman at Caltech majoring in Physics" />
+
+    <!-- Navigation appears first -->
+    <Nav client:load />
+
+    <!-- Page-specific content -->
     <main>
       <slot />
     </main>
+
     <footer class="footer">
       <p>© {new Date().getFullYear()} Jack Yu</p>
     </footer>
-    <Analytics />
   </body>
 </html>
