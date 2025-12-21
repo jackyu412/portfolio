@@ -1,14 +1,15 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="Jack Yu – Resume" description="Download or view the resume of Jack Yu, Caltech physics student and photonics researcher.">
+<Layout
+  title="Jack Yu – Resume"
+  description="Download or view the resume of Jack Yu "
+>
   <div class="content-wrapper">
     <section class="block" id="resume">
       <h2>Resume</h2>
-      <p>
-        Click the button below to reveal my current resume.
-      </p>
+      <p>Click the button below to reveal my current resume.</p>
 
       <!-- Toggle button -->
       <p style="text-align: center;">
@@ -39,10 +40,7 @@ import Layout from '../layouts/Layout.astro';
       </p>
 
       <!-- Hidden resume content -->
-      <div
-        id="resume-content"
-        style="display: none; margin-top: 1rem;"
-      >
+      <div id="resume-content" style="display: none; margin-top: 1rem;">
         <!-- Embedded PDF viewer -->
         <div style="display: flex; justify-content: center;">
           <iframe
@@ -51,13 +49,16 @@ import Layout from '../layouts/Layout.astro';
             height="600"
             style="border: 1px solid #ccc; max-width: 850px; border-radius: 0.5rem;"
             title="Resume PDF"
-            loading="lazy"
-          ></iframe>
+            loading="lazy"></iframe>
         </div>
 
         <!-- Download link -->
         <p style="text-align: center; margin-top: 1rem;">
-          <a href="/documents/jack-yu-resume.pdf" download style="color: dodgerblue; text-decoration: underline;">
+          <a
+            href="/documents/jack-yu-resume.pdf"
+            download
+            style="color: dodgerblue; text-decoration: underline;"
+          >
             Download PDF
           </a>
         </p>

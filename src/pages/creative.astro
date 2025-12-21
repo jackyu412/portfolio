@@ -1,23 +1,36 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="Jack Yu – Creative" description="Creative works by Jack Yu, including music, printmaking, and more.">
-
+<Layout
+  title="Jack Yu - Creative"
+  description="Creative works by Jack Yu, including music, printmaking, and more."
+>
   <div class="creative-layout">
-
     <!-- Left: Main content column -->
     <div class="content-wrapper creative-main">
       <section class="block" id="research">
         <h2>September 2025</h2>
         <ul>
           <li>
-            <strong>Magnetic 3-in-1 Ruler Clip: Marking Gauge, Depth Gauge, Calipers</strong> - 
-            I designed this versatile magnetic clip on low-profile tool that serves as a marking gauge, depth gauge, and calipers, allowing me to measure and mark accurately and precisely on a flat surface.
-            <br><br>
-            <iframe src="https://www.printables.com/embed/1403182" width="400" height="445" scrolling="no" frameborder="0"></iframe>
-            <br>
-            <a href="https://www.printables.com/model/1403182-magnetic-3-in-1-ruler-clip-marking-gauge-depth-gau" target="_blank" rel="noopener noreferrer">
+            <strong
+              >Magnetic 3-in-1 Ruler Clip: Marking Gauge, Depth Gauge, Calipers</strong
+            > - I designed this versatile magnetic clip on low-profile tool that
+            serves as a marking gauge, depth gauge, and calipers, allowing me to
+            measure and mark accurately and precisely on a flat surface.
+            <br /><br />
+            <iframe
+              src="https://www.printables.com/embed/1403182"
+              width="400"
+              height="445"
+              scrolling="no"
+              frameborder="0"></iframe>
+            <br />
+            <a
+              href="https://www.printables.com/model/1403182-magnetic-3-in-1-ruler-clip-marking-gauge-depth-gau"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               View and download on Printables
             </a>
           </li>
@@ -28,8 +41,12 @@ import Layout from '../layouts/Layout.astro';
         <h2>August 31, 2025</h2>
         <ul>
           <li>
-            Recorded <strong>Granados – Allegro de Concierto, Op. 46</strong>.  
-            <a href="https://www.youtube.com/watch?v=nbd7ltlcINk" target="_blank" rel="noopener noreferrer">
+            Recorded <strong>Granados - Allegro de Concierto, Op. 46</strong>.
+            <a
+              href="https://www.youtube.com/watch?v=nbd7ltlcINk"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Watch the performance on YouTube
             </a>
           </li>
@@ -40,8 +57,12 @@ import Layout from '../layouts/Layout.astro';
         <h2>July 25, 2025</h2>
         <ul>
           <li>
-            Performed several favorite pieces for my brothers' wedding, including:  
-            <em>“Grand Escape,” “Weathering Away,” “River Flows in You,” Chopin's Nocturne in E-flat Major, Op. 9 No. 2, and Debussy's “Bruyères”</em>
+            Performed several favorite pieces for my brothers' wedding,
+            including:
+            <em
+              >“Grand Escape,” “Weathering Away,” “River Flows in You,” Chopin's
+              Nocturne in E-flat Major, Op. 9 No. 2, and Debussy's “Bruyères”</em
+            >
           </li>
         </ul>
       </section>
@@ -50,10 +71,11 @@ import Layout from '../layouts/Layout.astro';
     <!-- Right: Sidebar -->
     <aside class="creative-aside">
       <div class="floating-links">
-        <a href="/documents/Jack_Yu_Music_Resume.pdf" target="_blank" rel="noopener noreferrer">
-          Music Resume
-        </a>
-        <a href="/documents/AP_2D_Portfolio.pdf" target="_blank" rel="noopener noreferrer">
+        <a
+          href="/documents/AP_2D_Portfolio.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           AP Art Portfolio
         </a>
       </div>
@@ -62,13 +84,19 @@ import Layout from '../layouts/Layout.astro';
         <div id="gr_custom_widget_1751775134">
           <div class="gr_custom_container_1751775134">
             <div class="gr_custom_header_1751775134">
-              <button onclick="loadBookshelf()" style="width: 100%; background: #f0f0f0; border: 1px solid #ccc; border-radius: 4px; padding: 8px 12px; font-size: 0.9em; cursor: pointer; font-family: inherit;">
+              <button
+                onclick="loadBookshelf()"
+                style="width: 100%; background: #f0f0f0; border: 1px solid #ccc; border-radius: 4px; padding: 8px 12px; font-size: 0.9em; cursor: pointer; font-family: inherit;"
+              >
                 📚 Load My Bookshelf
               </button>
             </div>
             <div id="gr_custom_widget_1751775134_content">
               <div class="gr_custom_each_container_1751775134">
-                <div class="gr_custom_author_1751775134" style="text-align: center; color: #666; font-style: italic;">
+                <div
+                  class="gr_custom_author_1751775134"
+                  style="text-align: center; color: #666; font-style: italic;"
+                >
                   Click above to see what I'm currently reading
                 </div>
               </div>
@@ -77,52 +105,59 @@ import Layout from '../layouts/Layout.astro';
         </div>
         <script is:inline>
           function loadBookshelf() {
-            const content = document.getElementById('gr_custom_widget_1751775134_content');
-            const button = document.querySelector('#gr_custom_widget_1751775134 button');
-            
+            const content = document.getElementById(
+              "gr_custom_widget_1751775134_content"
+            );
+            const button = document.querySelector(
+              "#gr_custom_widget_1751775134 button"
+            );
+
             if (content) {
-              content.innerHTML = '<div class="gr_custom_each_container_1751775134"><div class="gr_custom_author_1751775134">Loading books...</div></div>';
+              content.innerHTML =
+                '<div class="gr_custom_each_container_1751775134"><div class="gr_custom_author_1751775134">Loading books...</div></div>';
             }
-            
+
             if (button) {
-              button.textContent = '📚 Loading...';
+              button.textContent = "📚 Loading...";
               button.disabled = true;
             }
-            
+
             // Remove existing script
-            const existingScript = document.querySelector('script[src*="goodreads.com"]');
+            const existingScript = document.querySelector(
+              'script[src*="goodreads.com"]'
+            );
             if (existingScript) {
               existingScript.remove();
             }
-            
+
             // Load new script
-            const script = document.createElement('script');
-            script.src = "https://www.goodreads.com/review/custom_widget/125669031.Jack's%20bookshelf:%20currently-reading?cover_position=left&cover_size=small&num_books=3&order=d&shelf=currently-reading&show_author=1&show_cover=1&show_rating=0&show_tags=1&show_title=1&sort=date_added&widget_bg_color=FFFFFF&widget_bg_transparent=&widget_border_width=1&widget_id=1751775134&widget_text_color=000000&widget_title_size=medium&widget_width=medium";
+            const script = document.createElement("script");
+            script.src =
+              "https://www.goodreads.com/review/custom_widget/125669031.Jack's%20bookshelf:%20currently-reading?cover_position=left&cover_size=small&num_books=3&order=d&shelf=currently-reading&show_author=1&show_cover=1&show_rating=0&show_tags=1&show_title=1&sort=date_added&widget_bg_color=FFFFFF&widget_bg_transparent=&widget_border_width=1&widget_id=1751775134&widget_text_color=000000&widget_title_size=medium&widget_width=medium";
             script.charset = "utf-8";
-            
-            script.onload = function() {
+
+            script.onload = function () {
               // Hide the button after successful load
               if (button) {
-                button.style.display = 'none';
+                button.style.display = "none";
               }
             };
-            
-            script.onerror = function() {
+
+            script.onerror = function () {
               if (content) {
-                content.innerHTML = '<div class="gr_custom_each_container_1751775134"><div class="gr_custom_author_1751775134">Unable to load bookshelf. <a href="https://www.goodreads.com/user/show/125669031-jack" target="_blank">View on Goodreads</a></div></div>';
+                content.innerHTML =
+                  '<div class="gr_custom_each_container_1751775134"><div class="gr_custom_author_1751775134">Unable to load bookshelf. <a href="https://www.goodreads.com/user/show/125669031-jack" target="_blank">View on Goodreads</a></div></div>';
               }
               if (button) {
-                button.textContent = '📚 Try Again';
+                button.textContent = "📚 Try Again";
                 button.disabled = false;
               }
             };
-            
+
             document.head.appendChild(script);
           }
         </script>
       </div>
     </aside>
-
   </div>
-
 </Layout>
