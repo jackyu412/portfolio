@@ -4,47 +4,35 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout title="Jack Yu">
   <div class="content-wrapper">
-    <section class="block" id="contact">
+    <section class="block section-panel" id="contact">
       <h2>Contact</h2>
-      <p>
-        You can reach me at:
-        <span
-          id="email-toggle"
-          onclick="
-          const email = document.getElementById('email-address');
-          email.style.opacity = email.style.opacity === '1' ? '0' : '1';
-        "
-          onmouseenter="
-          this.style.transform = 'translateY(-1px)';
-          this.style.opacity = '0.7';
-        "
-          onmouseleave="
-          this.style.transform = 'translateY(0)';
-          this.style.opacity = '1';
-          document.getElementById('email-address').style.opacity = '0';
-        "
-          style="
-          cursor: pointer;
-          color: dodgerblue;
-          font-style: italic;
-          transition: all 0.2s ease;
-          display: inline-block;
-        "
-        >
-          Click to reveal email
-        </span>
+      <p>Click the button below to reveal my email address.</p>
 
-        <span
-          id="email-address"
-          style="
-          margin-left: 0.5rem;
-          opacity: 0;
-          transition: opacity 0.2s ease;
-        "
-        >
-          jackyu [at] caltech [dot] edu
-        </span>
-      </p>
+      <button id="reveal-email" class="button">Reveal email</button>
+      <div id="email-output" aria-live="polite" style="margin-top: 1rem;"></div>
     </section>
   </div>
+
+  <script is:inline>
+    const revealButton = document.getElementById("reveal-email");
+    const emailOutput = document.getElementById("email-output");
+
+    if (revealButton && emailOutput) {
+      revealButton.addEventListener("click", () => {
+        const user = atob("amFja3l1");
+        const domain = atob("Y2FsdGVjaC5lZHU=");
+        const email = `${user}@${domain}`;
+
+        const link = document.createElement("a");
+        link.href = `mailto:${email}`;
+        link.textContent = email;
+        link.style.color = "dodgerblue";
+        link.style.textDecoration = "underline";
+
+        emailOutput.innerHTML = "";
+        emailOutput.appendChild(link);
+        revealButton.style.display = "none";
+      });
+    }
+  </script>
 </Layout>

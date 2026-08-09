@@ -15,11 +15,11 @@ export default function Nav() {
         <span className="nav-toggle-bar" />
       </button>
       <div className={`nav-links${open ? ' open' : ''}`}>
-        <a href="/">Home</a>
+        <a href="/#about">About</a>
         <a href="/research">Research</a>
-        <a href="/resume">Résumé/CV</a>
-        <a href="/contact">Contact Me</a>
-        <a href="/creative">Side Quests🎹📷</a>
+        <a href="/resume">Résumé</a>
+        <a href="/contact">Contact</a>
+        <a href="/creative">Creative</a>
         {/* LinkedIn link */}
         <a
           href="https://www.linkedin.com/in/jack-s-yu"

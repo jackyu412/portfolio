@@ -1,191 +1,88 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Lightbox from "../components/Lightbox.tsx";
 ---
 
 <Layout
-  title="Jack Yu - Research"
-  description="Research projects by Jack Yu"
-  favicon="/favicon-external-tab.ico"
+  title="Research | Jack Yu"
+  description="Research work and publications of Jack Yu"
 >
   <div class="content-wrapper">
-    <section class="research-list">
-      <!-- Raspberry Pi Camera Noir Project -->
-      <div class="research-card">
-        <h3>September 2025 - Raspberry Pi Near-Infrared Imaging</h3>
-        <p>
-          Unsatisfied with the awkward usage of IR viewers, I developed a camera
-          system using the Raspberry Pi Camera Module 3 Noir, which is built
-          around the Sony IMX708 sensor. Unlike the standard Pi Camera, the Noir
-          version lacks an infrared filter, enabling us to capture near-infrared
-          light. This makes it especially useful for visualizing and aligning
-          laser systems in the near-IR range, many of which would otherwise be
-          invisible to the naked eye. Combined with autofocus and a compact
-          integration, the setup provides a lightweight, portable, and
-          eye-strain-free alternative to traditional infrared viewers.
-        </p>
-        <p>
-          To operate the system, I built a full-featured graphical user
-          interface (GUI) in <strong>Python</strong> using <strong>PyQt5</strong
-          > and
-          <strong>picamera2</strong>. The GUI simplifies tasks like live
-          preview, image capture, and video recording, while also offering
-          custom cropping, magnification, and various focus modes.
-        </p>
-        <div class="research-links">
-          <a
-            href="https://github.com/jackyu412/pi-camera-gui"
-            target="_blank"
-            style="color: dodgerblue; text-decoration: underline;"
+    <section class="section-panel research-card">
+      <h2>Publications</h2>
+      <p>
+        D. K. Serkland, A. J. Grine, P.-S. Wong, <strong>Jack Yu</strong>.
+        "Noise Characterization of VCSELs for Atomic Clocks and Magnetometers."
+        <em>Proceedings of SPIE</em>, Vol. PC13911, Vertical-Cavity
+        Surface-Emitting Lasers XXX, 2026.
+      </p>
+      <i>(More to come!)</i>
+    </section>
+
+    <section class="section-panel research-card">
+      <h2>Research Experience</h2>
+      <ul class="research-list">
+        <li>
+          <strong
+            >Summer 2026 — William N. Lacey SURF Research Fellow, Cushing Lab</strong
           >
-            View GitHub Repository
-          </a>
-        </div>
-        <p>Click on images to enlarge.</p>
-
-        <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
-          <figure class="bio-figure">
-            <Lightbox
-              src="/images/picam1.jpg"
-              alt="Pi Camera Noir setup view 1"
-              client:load
-            />
-            <figcaption>
-              Camera can be setup in many impossible angles
-            </figcaption>
-          </figure>
-
-          <figure class="bio-figure">
-            <Lightbox
-              src="/images/picam4.jpg"
-              alt="Infrared imaging example"
-              client:load
-            />
-            <figcaption>3D printed articulating mount</figcaption>
-          </figure>
-
-          <figure class="bio-figure">
-            <Lightbox
-              src="/images/picam2.jpg"
-              alt="Pi Camera Noir setup view 2"
-              client:load
-            />
-            <figcaption>Display saves space</figcaption>
-          </figure>
-
-          <figure class="bio-figure">
-            <Lightbox
-              src="/images/picam3.jpg"
-              alt="Captured near-IR laser alignment"
-              client:load
-            />
-            <figcaption>Portable setup (at probe station)</figcaption>
-          </figure>
-
-          <figure class="bio-figure">
-            <Lightbox
-              src="/images/picam5.jpg"
-              alt="Compact Pi Noir camera integration"
-              client:load
-            />
-            <figcaption>Selfie taken with camera (12MP)</figcaption>
-          </figure>
-        </div>
-      </div>
-
-      <!-- Snapshots from Summer 2025 -->
-      <div class="research-card">
-        <h3>Snapshots from Summer 2025</h3>
-        <p>
-          I worked on a mechanical fixture to AR coat a Lithium Niobate
-          waveguide, and built a U-bench external cavity setup. At the same
-          time, I set up a Raspberry Pi near-infrared camera system with
-          autofocus, which is more convenient than using a traditional infrared
-          viewer.
-        </p>
-        <p>Click on images to enlarge.</p>
-
-        <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
-          <!-- AR coating fixture -->
-          <figure class="bio-figure">
-            <Lightbox
-              src="/images/AR-coat.png"
-              alt="AR coating fixture SolidWorks model"
-              client:load
-            />
-            <figcaption>AR coating fixture (SolidWorks)</figcaption>
-          </figure>
-
-          <figure class="bio-figure">
-            <Lightbox
-              src="/images/AR-coat-irl_compressed.jpg"
-              alt="Tangible AR coating fixture"
-              client:load
-            />
-            <figcaption>Tangible AR coating fixture</figcaption>
-          </figure>
-
-          <!-- U-bench SolidWorks image -->
-          <figure class="bio-figure">
-            <Lightbox
-              src="/images/U-bench.png"
-              alt="U-bench SolidWorks model, view 1"
-              client:load
-            />
-            <figcaption>U-bench model (SolidWorks, view 1)</figcaption>
-          </figure>
-        </div>
-      </div>
-
-      <!-- Senior Project 2025 -->
-      <div class="research-card">
-        <h3>Senior Project - Fall 2025</h3>
-        <p>
-          My senior project was to set up an External Cavity Diode Laser (ECDL),
-          to ultimately characterize AR coatings on gain chips. Along the way, I
-          machined many custom optomechanical components, including flexure
-          attachments, and a custom mount for AR coating in a Veeco Spector.
-        </p>
-        <p>Click on image to enlarge.</p>
-
-        <figure class="bio-figure">
-          <Lightbox
-            src="/images/250512vFJACKSENIORPROJECTPPT_40x30.jpg"
-            alt="Senior Project Summary Slide"
-            client:load
-          />
-          <figcaption>Senior Project Summary Slide (Summer 2025)</figcaption>
-          <figcaption>
-            <a
-              href="/images/250512vFJACKSENIORPROJECTPPT_40x30.pdf"
-              target="_blank"
-              style="color: dodgerblue; text-decoration: underline;"
-            >
-              Open full-resolution image
-            </a>
-          </figcaption>
-        </figure>
-      </div>
-
-      <!-- 2024 Etalon Summary -->
-      <div class="research-card">
-        <h3>Etalon Characterization & Summary 2024 Research Summary</h3>
-        <p>
-          Conducted Fabry-Pérot etalon measurements and compiled a general
-          summary of my 2024 research into this slideshow, which I presented to
-          my department.
-        </p>
-        <p>My data and experimental setup was presented to DARPA.</p>
-        <div class="research-links">
-          <a
-            href="/documents/2407JUL24_Etalon_and_General_Summary.pdf"
-            target="_blank"
-            style="color: dodgerblue; text-decoration: underline;"
+          <ul>
+            <li>
+              Modeled lattice anharmonicity in Na₃PS₄ using density functional
+              theory (DFT) to investigate ion transport mechanisms.
+            </li>
+            <li>
+              Designed and integrated a thermoelectric temperature-controlled
+              stage for Laser-driven Ultrafast Impedance Spectroscopy (LUIS) to
+              enable temperature-dependent studies of phonon-mediated ion
+              transport.
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong
+            >Jan 2026 – Present — Student Researcher, Experimental Gravity Group
+            (EGG)</strong
           >
-            View PDF Slides
-          </a>
-        </div>
-      </div>
+          <ul>
+            <li>
+              Designed and simulated experimentally viable non-Gaussian photonic
+              quantum states using Strawberry Fields (TensorFlow backend) and
+              QuTiP.
+            </li>
+            <li>
+              Formulated and optimized high-dimensional optical circuit
+              parameters for multi-mode beam splitter and squeezer networks
+              under realistic photon-loss and noise models.
+            </li>
+            <li>
+              Accelerated large-scale optimization by leveraging Caltech’s HPC
+              cluster to parallelize computationally intensive parameter
+              searches and fidelity evaluations.
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong
+            >Jun 2024 – Sep 2025 — Optoelectronics Intern, Sandia National
+            Laboratories</strong
+          >
+          <ul>
+            <li>
+              Conducted DARPA H6 research developing and characterizing a
+              piezo-tunable etalon for chip-scale atomic clocks through
+              frequency stability and noise analysis.
+            </li>
+            <li>
+              Characterized VCSELs using probe-station measurements and device
+              modeling to optimize laser performance.
+            </li>
+            <li>
+              Designed, constructed, and characterized a Littman–Metcalf
+              external cavity diode laser (ECDL) for AR coating evaluation.
+            </li>
+          </ul>
+        </li>
+      </ul>
     </section>
   </div>
 </Layout>

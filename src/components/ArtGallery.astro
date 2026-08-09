@@ -1,0 +1,47 @@
+---
+import Lightbox from "./Lightbox.tsx";
+
+// To add a new piece: drop the image in public/images/art/ and add one
+// object to this array. fullSizeSrc is optional (defaults to src).
+export interface ArtPiece {
+  src: string;
+  fullSizeSrc?: string;
+  alt: string;
+  title: string;
+  caption?: string;
+}
+
+const { pieces } = Astro.props as { pieces: ArtPiece[] };
+---
+
+<div class="art-gallery">
+  {
+    pieces.map((piece) => (
+      <figure class="bio-figure art-piece">
+        <Lightbox
+          src={piece.src}
+          fullSizeSrc={piece.fullSizeSrc ?? piece.src}
+          alt={piece.alt}
+          client:load
+        />
+        <figcaption>
+          <em>{piece.title}</em>
+        </figcaption>
+        {piece.caption && <figcaption>{piece.caption}</figcaption>}
+      </figure>
+    ))
+  }
+</div>
+
+<style>
+  .art-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+  .art-piece {
+    max-width: 320px;
+    margin: 0.5rem;
+  }
+</style>

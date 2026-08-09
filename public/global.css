@@ -1,418 +1,649 @@
 @font-face {
-    font-family: 'Latin Modern Roman';
-    src: url('/fonts/lmroman10-regular.otf') format('opentype');
-    font-weight: 400;
-    font-style: normal;
+  font-family: "Latin Modern Roman";
+  src: url("/fonts/lmroman10-regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'Latin Modern Roman';
-    src: url('/fonts/lmroman10-bold.otf') format('opentype');
-    font-weight: 700;
-    font-style: normal;
+  font-family: "Latin Modern Roman";
+  src: url("/fonts/lmroman10-bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'Latin Modern Roman';
-    src: url('/fonts/lmroman10-italic.otf') format('opentype');
-    font-weight: 400;
-    font-style: italic;
+  font-family: "Latin Modern Roman";
+  src: url("/fonts/lmroman10-italic.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
 }
 
 @font-face {
-    font-family: 'Latin Modern Roman';
-    src: url('/fonts/lmroman10-bolditalic.otf') format('opentype');
-    font-weight: 700;
-    font-style: italic;
+  font-family: "Latin Modern Roman";
+  src: url("/fonts/lmroman10-bolditalic.otf") format("opentype");
+  font-weight: 700;
+  font-style: italic;
 }
 
+/* --------------------------------------------------
+   Base
+-------------------------------------------------- */
 
-.index-image {
-    display: block;
-    max-width: 1000px;
-    width: 100%;
-    height: auto;
-    margin: 0rem auto;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.content-wrapper {
-    background-color: rgba(255 255 255 / 0.85);
-    padding: 1rem 1.25rem;
-    border-radius: 0.5rem;
-    max-width: 1000px;
-    margin: 2rem auto;
-    box-sizing: border-box;
-}
-
-/* Adjust content box padding */
-.content-wrapper {
-    padding: 1rem 1.25rem;
-}
-
-main {
-    padding: 1.5rem 1.25rem;
-}
-
-@media (min-width: 1000px) {
-    .content-wrapper { padding: 1.25rem 1.5rem; }
-    main { padding: 1.75rem 1.5rem; }
-}
-
-.bio-figure {
-    text-align: center;
-    margin: 2rem auto;
-    font-size: 0.9rem;
-    color: #555;
-}
-
-.bio-figure figcaption {
-    margin-top: 0.5rem;
-    font-style: normal;
-    text-shadow: 0 0 4px rgba(255 255 255 / 0.85);
+html {
+  min-height: 100%;
+  background: #f5f7f9;
+  overflow-x: hidden;
+  scrollbar-gutter: stable;
 }
 
 body {
-    font-family: 'Latin Modern Roman', Georgia, serif;
-    margin: 0;
-    padding: 0;
-    color: #111;
-    line-height: 1.6;
+  --bg-saturate: 0.90;
+  --bg-contrast: 1;
+  --bg-brightness: 0.95;
+  --bg-blur: 3px;
+  --hover-radius: 11rem;
+  --pointer-x: 50vw;
+  --pointer-y: 50vh;
 
-    /* This is a pretty cool background image I made with css only! */
-    background:
-        linear-gradient(90deg, #b0bec5 1px, transparent 1px),
-        linear-gradient(0deg, #b0bec5 1px, transparent 1px),
-        repeating-radial-gradient(circle at center, #90a4ae 1px, transparent 10px);
-    background-size: 50px 50px;
-    background-position: 0 0, 0 0, 0 0;
-    background-repeat: repeat;
-    background-blend-mode: darken;
-    background-color: #f0f4f8;
+  min-height: 100vh;
+  color: #111;
+  font-family: "Latin Modern Roman", Georgia, serif;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  position: relative;
+  overflow-x: hidden;
+  background-color: #111;
+  background-image: url("/images/output-inverted.jpg");
+  background-size: cover;
+  background-position: center -5%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background-image: url("/images/output-inverted.jpg");
+  background-size: cover;
+  background-position: center -5%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  filter: blur(var(--bg-blur)) saturate(0.86) contrast(0.92) brightness(0.95);
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: url("/images/output-inverted.jpg");
+  background-size: cover;
+  background-position: center -5%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  clip-path: circle(var(--hover-radius) at var(--pointer-x) var(--pointer-y));
+  opacity: 0;
+  transition: opacity 0.15s ease, clip-path 0.08s ease;
+}
+
+body:hover::after {
+  opacity: 1;
+}
+
+@media (max-width: 720px) {
+  body {
+    background-image: url("/images/output-inverted.jpg");
+    background-position: center top;
+  }
+
+  body::before,
+  body::after {
+    background-image: url("/images/output-inverted.jpg");
+    background-position: center top;
+  }
+}
+
+/* --------------------------------------------------
+   Main layout
+-------------------------------------------------- */
 
 main {
-    max-width: 1000px;
-    margin: auto;
-    padding: 2rem 2rem;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4rem;
 }
 
+.content-wrapper {
+  max-width: 900px;
+  margin: 1.5rem auto;
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
+}
+
+/* --------------------------------------------------
+   Navigation
+-------------------------------------------------- */
+
 .nav {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    background: #f0f0f0;
-    padding: 0.75rem;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    border-bottom: 1px solid #ccc;
-    font-size: 0.9rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.65);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  backdrop-filter: blur(14px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  font-size: 0.95rem;
 }
 
 .nav a {
-    color: #333;
-    text-decoration: none;
-    padding: 0.25rem 0.5rem;
-    border-radius: 0.25rem;   
+  padding: 0.35rem 0.75rem;
+  color: #111;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  transition: background 0.15s ease, color 0.15s ease;
 }
 
-.nav a:hover {
-    background: #ddd;
+.nav a:hover,
+.nav a:focus-visible {
+  background: rgba(17, 17, 17, 0.08);
+  color: #000;
 }
+
+/* --------------------------------------------------
+   Typography
+-------------------------------------------------- */
+
+h1,
+h2,
+h3 {
+  color: #111;
+  line-height: 1.25;
+}
+
+h1 {
+  margin-bottom: 0.75rem;
+}
+
+h2 {
+  margin-bottom: 0.5rem;
+  font-size: 1.8rem;
+}
+
+h3 {
+  margin-bottom: 0.5rem;
+}
+
+p {
+  max-width: 72ch;
+  margin-bottom: 1.25rem;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+a {
+  color: #1769aa;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* --------------------------------------------------
+   Sections
+-------------------------------------------------- */
 
 .block {
-    padding: 0rem 0rem;
-    border-bottom: 1px solid #ddd;
+  padding: 0;
+  margin-bottom: 3rem;
 }
-/* Sidebar / floating links - desktop */
+
+.block > .content-wrapper,
+.block > .cta {
+  position: relative;
+  z-index: 1;
+}
+
+.section-panel {
+  padding: 2.5rem 2rem;
+  margin: 0 auto 3.5rem;
+  max-width: 840px;
+  width: min(100%, 840px);
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 1.75rem;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(14px);
+}
+
+.about p {
+  max-width: none;
+  width: auto;
+  margin-bottom: 1.8rem;
+  line-height: 1.75;
+}
+
+/* --------------------------------------------------
+   About Me
+-------------------------------------------------- */
+
+/*
+  Keep the portrait beside the opening text on larger
+  screens, while keeping the actual paragraphs readable.
+*/
+
+.image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.about .headshot,
+.about .image {
+  --headshot-grayscale: 0.6;
+  --headshot-contrast: 0.9;
+  --headshot-brightness: 1.1;
+
+
+  float: left;
+  width: 180px;
+  height: auto;
+  margin: 0.75rem 1.5rem 1.75rem 0;
+  object-fit: cover;
+  border-radius: 1.25rem;
+  background-color: #f4f4f4;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  filter: grayscale(var(--headshot-grayscale)) brightness(var(--headshot-brightness)) contrast(var(--headshot-contrast));
+}
+
+.about h2 {
+  margin-top: 0;
+}
+
+@media (max-width: 760px) {
+  .about .headshot {
+    float: none;
+    width: 100%;
+    margin: 0 0 1.75rem 0;
+  }
+}
+
+.about .selfie {
+  float: right;
+  width: 250px;
+  height: 250px;
+  margin: 0.15rem 0 1rem 1.5rem;
+  object-fit: cover;
+}
+
+.about::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* About paragraph spacing is defined earlier to keep text readable and consistent. */
+
+.about-extras {
+  margin-top: 2rem;
+  clear: both;
+}
+
+.about-actions-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.75rem;
+}
+
+.resume-button {
+  padding: 0.7rem 1rem;
+  background: rgba(0, 0, 0, 0.04);
+  color: #111;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  white-space: nowrap;
+  font-size: 0.95rem;
+}
+
+.contact-inline {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 400;
+}
+
+.email-address {
+  font-weight: 600;
+  opacity: 0.95;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.72rem 1rem;
+  background: rgba(0, 0, 0, 0.04);
+  color: #111;
+  text-decoration: none;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 0.75rem;
+  font-family: inherit;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.95rem;
+  line-height: 1.25;
+  transition: transform 0.08s ease, background 0.08s ease, border-color 0.08s ease;
+}
+
+.button:hover,
+.button:focus-visible {
+  background: rgba(0, 0, 0, 0.08);
+  border-color: rgba(0, 0, 0, 0.16);
+  transform: translateY(-1px);
+}
+
+.button--small {
+  padding: 0.72rem 1rem;
+  font-size: 0.95rem;
+}
+
+.email-link {
+  color: #0b4f8f;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.email-link:hover,
+.email-link:focus-visible {
+  text-decoration: underline;
+}
+
+.external-icon {
+  display: inline-flex;
+  margin-left: 0.2rem;
+  width: 1rem;
+  height: 1rem;
+  fill: currentColor;
+}
+
+@media (max-width: 720px) {
+  .contact-inline {
+    width: 100%;
+  }
+}
+
+.about-card h3 {
+  margin-top: 0;
+}
+
+.about-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.text-link {
+  color: #1769aa;
+  text-decoration: underline;
+}
+
+@media (min-width: 760px) {
+  .about-extras {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* --------------------------------------------------
+   Hero / image
+-------------------------------------------------- */
+
+.hero {
+  padding: 2rem 0 1rem;
+  text-align: center;
+  background: #f4f4f4;
+}
+
+.index-image {
+  display: block;
+  width: 100%;
+  max-width: 1000px;
+  height: auto;
+  margin: 0 auto;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+}
+
+.bio-figure {
+  margin: 2.5rem auto;
+  text-align: center;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.bio-figure figcaption {
+  max-width: 65ch;
+  margin: 0.4rem auto 0;
+  line-height: 1.45;
+}
+
+/* --------------------------------------------------
+   Research
+-------------------------------------------------- */
+
+.research-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.research-card {
+  padding: 1.75rem 2rem;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.research-card h3 {
+  margin-top: 0;
+}
+
+.research-card ul {
+  margin: 0.75rem 0 1rem 1.25rem;
+}
+
+.research-links {
+  margin-top: 1rem;
+}
+
+.research-links a.disabled,
+.research-links .disabled {
+  color: #aaa;
+  pointer-events: none;
+  font-style: italic;
+}
+
+/* --------------------------------------------------
+   Creative / resume
+-------------------------------------------------- */
+
+.research,
+.creative,
+.code {
+  background: #fff;
+}
+
+.resume {
+  text-align: center;
+  background: #f9f9f9;
+}
+
+.creative-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: 2rem;
+}
+
+.creative-main {
+  min-width: 0;
+}
+
+.creative-aside {
+  width: 260px;
+}
+
+/* --------------------------------------------------
+   Floating links
+-------------------------------------------------- */
+
 .floating-links {
   position: sticky;
   top: 2rem;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  align-items: flex-start;
+  gap: 0.6rem;
   width: 200px;
   flex-shrink: 0;
-  z-index: 1000;
 }
 
 .floating-links a {
   display: block;
-  background-color: white;
+  padding: 0.4rem 0.6rem;
+  color: #333;
+  background: #fff;
   border: 1px solid #ccc;
-  padding: 0.5rem 0.75rem;
   border-radius: 0.5rem;
   text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  font-size: 0.9rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
 }
 
 .floating-links a:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
 }
 
-/* Smaller floating link buttons */
-.floating-links a {
-  padding: 0.35rem 0.6rem;
-  font-size: 0.9rem;
-}
-
-/* Responsive: Mobile / small screens */
-@media (max-width: 900px) {
-  /* Stack everything vertically */
-  .main-layout {
-    flex-direction: column;
-  }
-
-  /* Floating links now go above content */
-  .floating-links {
-    position: relative; /* no longer sticky */
-    width: 100%;
-    flex-direction: row; /* horizontal on mobile */
-    flex-wrap: wrap;    /* wrap if too many */
-    justify-content: center;
-    margin-bottom: 1.5rem;
-    gap: 0.5rem;
-  }
-
-  .floating-links a {
-    flex: 1 1 120px;  /* minimum size so buttons don’t shrink too much */
-    text-align: center;
-    width: auto;
-    max-width: 48%;
-    padding: 0.35rem 0.6rem;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-  }
-}
-
-/* Floating links: two per row on mobile, aligned left/right */
-@media (max-width: 900px) {
-  .floating-links {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    gap: 0.5rem;
-  }
-  .floating-links a {
-    flex: 0 0 calc(50% - 0.5rem);
-    max-width: calc(50% - 0.5rem);
-    text-align: center;
-  }
-}
-
-/* Revert mobile hamburger menu item size (padding) */
-@media (max-width: 700px) {
-  .nav-links a {
-    padding: 0.85rem 0.75rem;
-  }
-  .nav-links a:last-child {
-    border-bottom: none;
-  }
-}
-
-.about {
-  background: #e9eef5;
-  border: 1px solid #aab6c1; 
-  border-radius: 0.75rem;
-  box-shadow:
-    0 4px 8px rgba(0, 0, 0, 0.1), 
-    inset 0 0 8px rgba(255, 255, 255, 0.6);
-  padding: 2rem 2.5rem;
-  transition: background-color 0.3s ease;
-}
-/* Professional headshot floated left with text wrap */
-.about .headshot {
-    float: left;
-    width: 180px;
-    max-width: 35%;
-    margin: 0 1rem 1rem 0;
-    border-radius: 50%; /* circular headshot */
-    object-fit: cover;
-}
-
-/* Lab selfie floated right */
-.about .selfie {
-    float: right;
-    width: 250px;
-    max-width: 40%;
-    margin: 0 0 1rem 1rem;
-    object-fit: cover;
-}
-
-/* Clear floats so container expands */
-.about::after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-/* Make sure paragraphs and lists do not overlap */
-.about p, 
-.about ul {
-    overflow: hidden; /* prevents overlap with floated images */
-}
-
-/* Responsive adjustments */
-@media (max-width: 900px) {
-    .about .headshot,
-    .about .selfie {
-        float: none;
-        width: 100%;
-        max-width: 100%;
-        margin: 0 0 1rem 0;
-    }
-
-    .about p,
-    .about ul {
-        overflow: visible;
-    }
-}
-
-
-.hero {
-    background: #f4f4f4;
-    text-align: center;
-    padding-top: 2rem;
-    padding-bottom: 1rem;
-}
-
-.research,
-.creative,
-.code {
-    background: #fff;
-}
-
-.resume {
-    background: #f9f9f9;
-    text-align: center;
-}
-
-a {
-    color: dodgerblue;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-h1,
-h2 {
-    margin-top: 0;
-}
+/* --------------------------------------------------
+   Footer
+-------------------------------------------------- */
 
 .footer {
-  text-align: center;
   padding: 1rem 0;
-  position: relative;
+  text-align: center;
 }
 
 .footer p {
-  position: relative;
-  display: inline-block;  
-  color: #000000;         
-  font-size: 0.9rem;
+  display: inline-block;
   margin: 0;
-  z-index: 2;
   padding: 0 0.4rem;
+  color: #000;
+  font-size: 0.9rem;
 }
 
-.footer p::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(240, 240, 240, 0.7); 
-  border-radius: 0.25em;
-  z-index: 1;
-  mix-blend-mode: normal; 
-}
-
-/* Goodreads stuff */
+/* --------------------------------------------------
+   Goodreads
+-------------------------------------------------- */
 
 .gr_custom_container_1751775134 {
-    max-width: 500px;
-    border: 1px solid gray;
-    border-radius: .75rem;
-    padding: 2rem;
-    background-color: #FFFFFF;
-    color: #000000;
-
-    /* Center horizontally */
-    margin: 2rem auto;
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 2rem;
+  color: #000;
+  background: #fff;
+  border: 1px solid gray;
+  border-radius: 0.75rem;
 }
 
 .gr_custom_header_1751775134 {
-    border-bottom: 1px solid gray;
-    width: 100%;
-    margin-bottom: 5px;
-    text-align: center;
-    font-size: 120%
+  width: 100%;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  text-align: center;
+  font-size: 120%;
+  border-bottom: 1px solid gray;
 }
 
 .gr_custom_each_container_1751775134 {
-    /* customize each individual book container here */
-    width: 100%;
-    clear: both;
-    margin-bottom: 10px;
-    overflow: auto;
-    padding-bottom: 4px;
-    border-bottom: 1px solid #aaa;
+  width: 100%;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  overflow: auto;
+  border-bottom: 1px solid #aaa;
 }
 
 .gr_custom_book_container_1751775134 {
-    /* customize your book covers here */
-    overflow: hidden;
-    height: 60px;
-    float: left;
-    margin-right: 4px;
-    width: 39px;
+  width: 39px;
+  height: 60px;
+  margin-right: 6px;
+  overflow: hidden;
+  float: left;
 }
 
-.gr_custom_author_1751775134 {
-    /* customize your author names here */
-    font-size: 10px;
+.gr_custom_author_1751775134,
+.gr_custom_tags_1751775134 {
+  font-size: 10px;
 }
 
 .gr_custom_tags_1751775134 {
-    /* customize your tags here */
-    font-size: 10px;
-    color: gray;
+  color: gray;
 }
 
 .gr_custom_rating_1751775134 {
-    /* customize your rating stars here */
-    float: right;
+  float: right;
 }
 
-/* Responsive Nav */
+/* --------------------------------------------------
+   Mobile navigation
+-------------------------------------------------- */
+
 .nav-toggle {
   display: none;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   width: 2.5rem;
   height: 2.5rem;
+  margin-right: 1rem;
+  padding: 0;
   background: none;
   border: none;
   cursor: pointer;
-  margin-right: 1rem;
-  z-index: 200;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .nav-toggle-bar {
+  display: block;
   width: 1.8rem;
   height: 0.22rem;
-  background: #333;
   margin: 0.22rem 0;
+  background: #333;
   border-radius: 2px;
-  display: block;
   transition: all 0.3s;
 }
 
@@ -421,160 +652,152 @@ h2 {
   gap: 1.5rem;
 }
 
-/* CSS-only toggle binding for Nav.astro */
 #nav-toggle:checked ~ .nav-links {
   display: flex;
 }
 
-@media (max-width: 700px) {
-  .nav {
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    position: relative;
-  }
-  .nav-toggle {
-    display: flex;
-  }
-  .nav-links {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: #f0f0f0;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0;
-    padding: 0.5rem 1rem;
-    display: none;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    border-bottom: 1px solid #ccc;
-    z-index: 150;
-  }
-  .nav-links.open {
-    display: flex;
-  }
-  .nav-links a {
-    padding: 0.75rem 0;
-    width: 100%;
-    border-radius: 0;
-    border-bottom: 1px solid #e0e0e0;
-  }
+/* --------------------------------------------------
+   Misc
+-------------------------------------------------- */
+
+.tex sub,
+.latex sub,
+.latex sup {
+  text-transform: uppercase;
 }
 
-.research-list {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
+.tex sub,
+.latex sub {
+  vertical-align: -0.5ex;
+  margin-left: -0.1667em;
+  margin-right: -0.125em;
 }
 
-.research-card {
-  background: #fff;
-  border-radius: 0.75rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-  padding: 2rem;
-  border: 1px solid #e0e0e0;
+.tex,
+.latex,
+.tex sub,
+.latex sub {
+  font-size: 1em;
 }
 
-.research-card h3 {
-  margin-top: 0;
-  margin-bottom: 0.5rem;
+.latex sup {
+  font-size: 0.85em;
+  vertical-align: 0.15em;
+  margin-left: -0.36em;
+  margin-right: -0.15em;
 }
 
-.research-card ul {
-  margin: 0.5rem 0 1rem 1.2rem;
-  padding: 0;
-}
-
-.research-links {
-  margin-top: 1rem;
-}
-
-.research-links a.disabled {
-  color: #aaa;
-  pointer-events: none;
-  text-decoration: line-through;
-}
-
-
-.tex sub, .latex sub, .latex sup {
-    text-transform: uppercase;
-  }
-
-  .tex sub, .latex sub {
-    vertical-align: -0.5ex;
-    margin-left: -0.1667em;
-    margin-right: -0.125em;
-  }
-
-  .tex, .latex, .tex sub, .latex sub {
-    font-size: 1em;
-  }
-
-  .latex sup {
-    font-size: 0.85em;
-    vertical-align: 0.15em;
-    margin-left: -0.36em;
-    margin-right: -0.15em;
-  }
-
-/* Selection highlight */
 ::selection {
-  background: #b3e5fc; /* light science blue */
+  background: #b3e5fc;
   color: #0b3954;
-}
-
-/* Default cursors */
-body {
-  cursor: auto;
-}
-
-a:hover {
-  cursor: pointer;
 }
 
 img:hover {
   cursor: zoom-in;
 }
 
-button:hover {
+button:hover,
+a:hover {
   cursor: pointer;
 }
 
-/* Prevent horizontal layout shift due to scrollbar appearance */
-html {
-  scrollbar-gutter: stable both-edges;
-  overflow-y: scroll; /* fallback for browsers without scrollbar-gutter */
-}
-
-/* Creative page layout */
-.creative-layout {
-  display: grid;
-  grid-template-columns: 1fr 260px;
-  gap: 2rem;
-}
-
-.creative-main {
-  flex: 1;
-}
-
-.creative-aside {
-  width: 260px;
-}
+/* --------------------------------------------------
+   Responsive
+-------------------------------------------------- */
 
 @media (max-width: 900px) {
+  main {
+    padding: 1.5rem 1rem;
+  }
+
+  .content-wrapper {
+    padding: 1.5rem;
+  }
+
   .creative-layout {
     display: block;
   }
+
   .creative-aside {
     width: 100%;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
   }
+
   .floating-links {
     position: relative;
     top: auto;
     width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .floating-links a {
+    flex: 0 0 calc(50% - 0.25rem);
+    text-align: center;
+  }
+
+  .about .headshot,
+  .about .selfie {
+    float: none;
+    display: block;
+    width: min(220px, 70%);
+    max-width: 100%;
+    margin: 0 auto 1.5rem;
+    object-fit: cover;
+    border-radius: 1rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .content-wrapper {
+    padding: 1.25rem;
+  }
+
+  .nav {
+    position: relative;
+    justify-content: flex-start;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: none;
     flex-direction: column;
-    align-items: stretch;
+    align-items: flex-start;
+    gap: 0;
+    padding: 0.5rem 1rem;
+    background: #f0f0f0;
+    border-bottom: 1px solid #ccc;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    z-index: 150;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links a {
+    width: 100%;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #e0e0e0;
+    border-radius: 0;
+  }
+
+  .nav-links a:last-child {
+    border-bottom: none;
+  }
+
+  .about p {
+    font-size: 1rem;
+    line-height: 1.6;
   }
 }

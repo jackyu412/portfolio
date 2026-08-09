@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Image from './Image';
 
 interface LightboxProps {
   src: string;
@@ -11,10 +12,11 @@ export default function Lightbox({ src, alt, fullSizeSrc }: LightboxProps) {
 
   return (
     <>
-      <img
+      <Image
         src={src}
         alt={alt}
         loading="lazy"
+        decoding="async"
         style={{
           cursor: 'zoom-in',
           maxWidth: '400px',
@@ -40,10 +42,11 @@ export default function Lightbox({ src, alt, fullSizeSrc }: LightboxProps) {
             cursor: 'zoom-out',
           }}
         >
-          <img
+          <Image
             src={fullSizeSrc ? fullSizeSrc : src}
             alt={alt}
             loading="lazy"
+            decoding="async"
             style={{ maxHeight: '90%', maxWidth: '90%', borderRadius: '0.75rem' }}
           />
         </div>

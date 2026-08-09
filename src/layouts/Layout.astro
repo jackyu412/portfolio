@@ -3,7 +3,11 @@ import Hero from "../components/Hero.astro";
 import Nav from "../components/Nav.jsx";
 
 // Accept title and description as props
-const { title = "Jack Yu", description = "Portfolio of Jack Yu" } = Astro.props;
+const {
+  title = "Jack Yu",
+  description = "Portfolio of Jack Yu",
+  heroTitle = "",
+} = Astro.props;
 ---
 
 <html lang="en">
@@ -13,12 +17,28 @@ const { title = "Jack Yu", description = "Portfolio of Jack Yu" } = Astro.props;
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="/images/qwell.svg" type="image/svg" />
+    <link rel="preload" as="image" href="/images/output-inverted.jpg" />
+    <link rel="preload" as="image" href="/images/headshotcompressed.jpg" />
+    <style>
+      html {
+        background: #111;
+      }
+      body {
+        background: #111;
+        background-image: url("/images/output-inverted.jpg");
+        background-size: cover;
+        background-position: center -5%;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        color: #111;
+      }
+    </style>
     <link rel="stylesheet" href="/global.css" />
   </head><body>
-    <Hero name="Jack Yu" title="Freshman at Caltech majoring in Physics" />
+    <Hero name="Jack Yu" title={heroTitle} />
 
     <!-- Navigation appears first -->
-    <Nav client:load />
+    <Nav client:idle />
 
     <!-- Page-specific content -->
     <main>
@@ -28,5 +48,17 @@ const { title = "Jack Yu", description = "Portfolio of Jack Yu" } = Astro.props;
     <footer class="footer">
       <p>© {new Date().getFullYear()} Jack Yu</p>
     </footer>
+
+    <script is:inline>
+      const body = document.body;
+      const setPointer = (x, y) => {
+        body.style.setProperty("--pointer-x", `${x}px`);
+        body.style.setProperty("--pointer-y", `${y}px`);
+      };
+
+      document.addEventListener("pointermove", (event) => {
+        setPointer(event.clientX, event.clientY);
+      });
+    </script>
   </body>
 </html>

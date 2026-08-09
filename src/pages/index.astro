@@ -1,73 +1,42 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Lightbox from "../components/Lightbox.tsx";
 ---
 
 <Layout title="Jack Yu - Portfolio" description="Portfolio of Jack Yu">
   <div class="content-wrapper">
-    <!-- Artwork Block -->
-    <section class="block" id="artwork">
-      <figure class="bio-figure">
-        <Lightbox
-          src="images/fieldscompressed.jpg"
-          fullSizeSrc="images/fields.jpg"
-          alt="2 layer Printmaking showing wave/particle duality throughout history."
-          client:load
-        />
-        <figcaption><em>Fields</em> (2024) — Artwork by Jack Yu</figcaption>
-        <figcaption>
-          1st layer: Phototransfer of historical lithograph showing Ray/Particle
-          model of light.
-        </figcaption>
-        <figcaption>
-          2nd Layer: Computer generated Inkjet print showing interference
-          pattern — Wave model of light.
-        </figcaption>
-      </figure>
-    </section>
-    <section class="block about" id="about">
+    <section class="block section-panel about" id="about">
+      <h2>About Me</h2>
       <img
         src="/images/headshotcompressed.jpg"
         alt="Jack Yu headshot"
-        class="headshot"
+        class="image headshot"
+        width="180"
+        height="180"
+        loading="eager"
+        decoding="sync"
+        fetchpriority="high"
+        style="background-color:#f4f4f4;filter: grayscale(0.6) brightness(1.1) contrast(0.9);"
       />
 
-      <h2>About Me</h2>
       <p>
-        I’m Jack Yu, a student studying physics at Caltech with a growing
-        interest in quantum computing and photonics. I've had 2 summers of
-        experience working in a photonics R&D lab at Sandia National Labs under
-        Dr. Darwin Serkland and Dr. Alejandro Griñe.
+        I am a sophomore at Caltech majoring in physics. I am interested in
+        developing the robust instrumentation and techniques required for
+        quantum sensing, quantum computing, solid-state electrolytes, nuclear
+        fusion, among many other emerging technological paradigms. So far, I
+        have worked in Caltech's
+        <a href="https://caltechexperimentalgravity.github.io/"
+          >Experimental Gravity Group</a
+        >, where I simulate quantum states useful for real-world quantum
+        computing, and in the <a href="https://cushinglab.caltech.edu/"
+          >Cushing Lab</a
+        >, where I develop spectroscopic instrumentation and techniques to study
+        how ions interact and move in solid-state electrolytes. Before Caltech,
+        I spent two summers working with VCSELs in an optoelectronics R&D lab at
+        Sandia National Labs.
       </p>
-
-      <p>I have experience with:</p>
-      <ul>
-        <li>
-          The testing and characterization of VCSELs and edge-emitting lasers
-        </li>
-        <li>
-          Modeling and making custom optomechanical parts using manual lathe,
-          mill, CNC machining, and 3D printing
-        </li>
-        <li>
-          Setting up an ECDL (External Cavity Diode Laser) to test effectiveness
-          of AR coatings
-        </li>
-        <li>
-          KiCad, SolidWorks, Spyder, <span class="latex"
-            >L<sup>a</sup>T<sub>e</sub>X</span
-          >
-        </li>
-      </ul>
-      <img
-        src="/images/selfiecompressed.jpg"
-        alt="Jack Yu in the lab"
-        class="selfie"
-      />
       <p>
-        I’m also part of Caltech’s NCAA swim team. In my free time, I satisfy my
-        creative itch through printmaking and photography. I also love reading
-        science fiction and philosophy books.
+        Outside the lab, I compete on Caltech's NCAA swim team and enjoy
+        photography, printmaking, and reading science fiction.
       </p>
     </section>
   </div>
