@@ -1,16 +1,17 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import SectionPanel from "../components/SectionPanel.astro";
 ---
 
 <Layout title="Jack Yu">
   <div class="content-wrapper">
-    <section class="block section-panel" id="contact">
+    <SectionPanel id="contact">
       <h2>Contact</h2>
       <p>Click the button below to reveal my email address.</p>
 
       <button id="reveal-email" class="button">Reveal email</button>
       <div id="email-output" aria-live="polite" style="margin-top: 1rem;"></div>
-    </section>
+    </SectionPanel>
   </div>
 
   <script is:inline>

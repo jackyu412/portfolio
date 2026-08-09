@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import SectionPanel from "../components/SectionPanel.astro";
 ---
 
 <Layout
@@ -7,7 +8,7 @@ import Layout from "../layouts/Layout.astro";
   description="Research work and publications of Jack Yu"
 >
   <div class="content-wrapper">
-    <section class="section-panel research-card">
+    <SectionPanel extraClass="research-card">
       <h2>Publications</h2>
       <p>
         D. K. Serkland, A. J. Grine, P.-S. Wong, <strong>Jack Yu</strong>.
@@ -16,9 +17,61 @@ import Layout from "../layouts/Layout.astro";
         Surface-Emitting Lasers XXX, 2026.
       </p>
       <i>(More to come!)</i>
-    </section>
+    </SectionPanel>
 
-    <section class="section-panel research-card">
+    <SectionPanel extraClass="research-card">
+      <h2>Projects</h2>
+
+      <div class="project-list">
+        <div class="project-card">
+          <h3>Peltier-Cooled Sample Stage for LUIS</h3>
+          <p>
+            Designed a thermoelectric (Peltier) temperature-controlled sample
+            stage for Laser-driven Ultrafast Impedance Spectroscopy (LUIS), to
+            enable temperature-dependent studies of phonon-mediated ion
+            transport in solid-state electrolytes. The broader goal is to
+            eventually freeze out phonon modes, though by the Bose-Einstein
+            distribution, Peltier cooling alone only freezes out a limited range
+            of modes. This stage instead serves as a proof of concept for
+            general temperature control in LUIS. The design is also modular,
+            allowing it to support the SMIM technique used elsewhere in the
+            Cushing Lab.
+          </p>
+          <!-- TODO: add a photo/CAD render if available, e.g.:
+          <Lightbox src="/images/peltier-stage-compressed.jpg" fullSizeSrc="/images/peltier-stage.jpg" alt="Peltier cooling stage design" client:load />
+          -->
+        </div>
+
+        <div class="project-card">
+          <h3>Littman–Metcalf External Cavity Diode Laser (ECDL)</h3>
+          <p>
+            Designed, constructed, and characterized a Littman–Metcalf external
+            cavity diode laser for AR coating evaluation as part of DARPA H6
+            research at Sandia National Laboratories.
+          </p>
+        </div>
+
+        <div class="project-card">
+          <h3>PyCamGUI</h3>
+          <p>
+            A Python GUI for the Raspberry Pi camera built with PyQt5 and
+            picamera2, with live preview, still capture, video recording, focus
+            controls, cropping, preview rotation, and theme toggling.
+          </p>
+          <p>
+            <a
+              href="https://github.com/jackyu412/pi-camera-gui"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View on GitHub →
+            </a>
+          </p>
+        </div>
+      </div>
+    </SectionPanel>
+
+    <SectionPanel extraClass="research-card">
       <h2>Research Experience</h2>
       <ul class="research-list">
         <li>
@@ -83,6 +136,6 @@ import Layout from "../layouts/Layout.astro";
           </ul>
         </li>
       </ul>
-    </section>
+    </SectionPanel>
   </div>
 </Layout>

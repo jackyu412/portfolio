@@ -1,16 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import SectionPanel from "../components/SectionPanel.astro";
 ---
 
-<Layout
-  title="Jack Yu – Resume"
-  description="Download or view the resume of Jack Yu"
->
+<Layout title="Jack Yu" description="Download or view the resume of Jack Yu">
   <div class="content-wrapper">
-    <section class="block section-panel" id="resume">
-      <h2>Résumé</h2>
+    <SectionPanel id="resume">
+      <h2>Resume</h2>
       <p>
-        Click the button below to load the résumé preview, or <a
+        Click the button below to load the resume preview, or <a
           id="download-link"
           href="/documents/resume_26.pdf"
           download
@@ -19,9 +17,9 @@ import Layout from "../layouts/Layout.astro";
         >.
       </p>
 
-      <button id="load-resume" class="button">Load résumé</button>
+      <button id="load-resume" class="button">Load resume</button>
       <div id="resume-container" style="margin-top: 1.5rem;"></div>
-    </section>
+    </SectionPanel>
   </div>
 
   <script is:inline>
@@ -39,7 +37,7 @@ import Layout from "../layouts/Layout.astro";
         iframe.src = resumeUrl;
         iframe.width = "100%";
         iframe.height = "800";
-        iframe.title = "Résumé PDF";
+        iframe.title = "Resume PDF";
         iframe.loading = "lazy";
         iframe.style.border = "1px solid #ccc";
         iframe.style.maxWidth = "850px";

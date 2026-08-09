@@ -1,60 +1,68 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Lightbox from "../components/Lightbox.tsx";
+import SectionPanel from "../components/SectionPanel.astro";
 ---
 
 <Layout title="Creative | Jack Yu" description="Creative work by Jack Yu">
   <div class="content-wrapper">
-    <section class="section-panel">
-      <div class="research-card">
-        <h3>Printmaking</h3>
-        <p>
-          Created layered print work that blends historical imagery with
-          generated interference patterns using phototransfer and inkjet
-          techniques.
-        </p>
-        <figure class="bio-figure">
+    <SectionPanel>
+      <ul class="creative-list">
+        <li class="creative-entry">
+          <div class="creative-entry-header">
+            <h3>Fields</h3>
+            <span class="entry-date">2024</span>
+          </div>
+          <p>
+            Layered print work blending historical imagery with generated
+            interference patterns, made via phototransfer and inkjet.
+          </p>
           <Lightbox
             src="/images/fieldscompressed.jpg"
             fullSizeSrc="/images/fields.jpg"
             alt="Fields printmaking piece"
             client:load
           />
-          <figcaption>Fields (2024) — layered printmaking.</figcaption>
-        </figure>
-      </div>
+        </li>
 
-      <div class="research-card">
-        <h3>Music</h3>
-        <p>
-          One of the latest recordings, after my senior year of high school.
-        </p>
-        <p>
-          <a
-            href="https://www.youtube.com/watch?v=nbd7ltlcINk"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Watch Granados Allegro de Concierto in D Major, Op. 46 on YouTube
-          </a>
-        </p>
-      </div>
+        <li class="creative-entry">
+          <div class="creative-entry-header">
+            <h3>Granados — Allegro de Concierto in D Major, Op. 46</h3>
+            <span class="entry-date">2024</span>
+          </div>
+          <p>
+            One of the latest recordings, after my senior year of high school.
+          </p>
+          <p>
+            <a
+              href="https://www.youtube.com/watch?v=nbd7ltlcINk"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Watch on YouTube →
+            </a>
+          </p>
+        </li>
 
-      <div class="research-card">
-        <h3>Design</h3>
-        <p>
-          Designed a compact magnetic 3-in-1 ruler clip for marking,
-          depth-gauging, and precision measurement.
-        </p>
-        <div style="margin-top: 1rem;">
-          <iframe
-            src="https://www.printables.com/embed/1403182"
-            width="100%"
-            height="445"
-            scrolling="no"
-            frameborder="0"></iframe>
-        </div>
-      </div>
-    </section>
+        <li class="creative-entry">
+          <div class="creative-entry-header">
+            <h3>3-in-1 Magnetic Ruler Clip</h3>
+            <span class="entry-date">2024</span>
+          </div>
+          <p>
+            A compact magnetic clip for marking, depth-gauging, and precision
+            measurement.
+          </p>
+          <div class="iframe-wrapper">
+            <iframe
+              src="https://www.printables.com/embed/1403182"
+              width="100%"
+              height="445"
+              scrolling="no"
+              frameborder="0"></iframe>
+          </div>
+        </li>
+      </ul>
+    </SectionPanel>
   </div>
 </Layout>

@@ -1,21 +1,21 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import SectionPanel from "../components/SectionPanel.astro";
+import { Image } from "astro:assets";
+import headshot from "../assets/headshotcompressed.jpg";
 ---
 
-<Layout title="Jack Yu - Portfolio" description="Portfolio of Jack Yu">
+<Layout title="Jack Yu" description="Portfolio of Jack Yu">
   <div class="content-wrapper">
-    <section class="block section-panel about" id="about">
+    <SectionPanel id="about" extraClass="about">
       <h2>About Me</h2>
-      <img
-        src="/images/headshotcompressed.jpg"
+      <Image
+        src={headshot}
         alt="Jack Yu headshot"
         class="image headshot"
-        width="180"
-        height="180"
-        loading="eager"
-        decoding="sync"
-        fetchpriority="high"
-        style="background-color:#f4f4f4;filter: grayscale(0.6) brightness(1.1) contrast(0.9);"
+        width={180}
+        height={180}
+        priority
       />
 
       <p>
@@ -38,6 +38,6 @@ import Layout from "../layouts/Layout.astro";
         Outside the lab, I compete on Caltech's NCAA swim team and enjoy
         photography, printmaking, and reading science fiction.
       </p>
-    </section>
+    </SectionPanel>
   </div>
 </Layout>

@@ -1,29 +1,33 @@
 @font-face {
   font-family: "Latin Modern Roman";
-  src: url("/fonts/lmroman10-regular.otf") format("opentype");
+  src: url("/fonts/lmroman10-regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Latin Modern Roman";
-  src: url("/fonts/lmroman10-bold.otf") format("opentype");
+  src: url("/fonts/lmroman10-bold.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Latin Modern Roman";
-  src: url("/fonts/lmroman10-italic.otf") format("opentype");
+  src: url("/fonts/lmroman10-italic.woff2") format("woff2");
   font-weight: 400;
   font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Latin Modern Roman";
-  src: url("/fonts/lmroman10-bolditalic.otf") format("opentype");
+  src: url("/fonts/lmroman10-bolditalic.woff2") format("woff2");
   font-weight: 700;
   font-style: italic;
+  font-display: swap;
 }
 
 /* --------------------------------------------------
@@ -46,72 +50,24 @@ html {
 }
 
 body {
-  --bg-saturate: 0.90;
-  --bg-contrast: 1;
-  --bg-brightness: 0.95;
-  --bg-blur: 3px;
-  --hover-radius: 11rem;
-  --pointer-x: 50vw;
-  --pointer-y: 50vh;
-
   min-height: 100vh;
   color: #111;
   font-family: "Latin Modern Roman", Georgia, serif;
   font-size: 1.05rem;
   line-height: 1.65;
   position: relative;
+  z-index: 0;
   overflow-x: hidden;
   background-color: #111;
-  background-image: url("/images/output-inverted.jpg");
+  background-image: var(--bg-image);
   background-size: cover;
   background-position: center -5%;
   background-repeat: no-repeat;
   background-attachment: fixed;
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -2;
-  pointer-events: none;
-  background-image: url("/images/output-inverted.jpg");
-  background-size: cover;
-  background-position: center -5%;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  filter: blur(var(--bg-blur)) saturate(0.86) contrast(0.92) brightness(0.95);
-}
-
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background-image: url("/images/output-inverted.jpg");
-  background-size: cover;
-  background-position: center -5%;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  clip-path: circle(var(--hover-radius) at var(--pointer-x) var(--pointer-y));
-  opacity: 0;
-  transition: opacity 0.15s ease, clip-path 0.08s ease;
-}
-
-body:hover::after {
-  opacity: 1;
 }
 
 @media (max-width: 720px) {
   body {
-    background-image: url("/images/output-inverted.jpg");
-    background-position: center top;
-  }
-
-  body::before,
-  body::after {
-    background-image: url("/images/output-inverted.jpg");
     background-position: center top;
   }
 }
@@ -229,16 +185,19 @@ a:hover {
   margin: 0 auto 3.5rem;
   max-width: 840px;
   width: min(100%, 840px);
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.92);
   border-radius: 1.75rem;
   box-shadow: 0 30px 70px rgba(0, 0, 0, 0.12);
   border: 1px solid rgba(255, 255, 255, 0.78);
-  backdrop-filter: blur(14px);
+}
+
+.section-panel p {
+  max-width: none;
+  width: auto;
+  margin-bottom: 1.25rem;
 }
 
 .about p {
-  max-width: none;
-  width: auto;
   margin-bottom: 1.8rem;
   line-height: 1.75;
 }
@@ -300,6 +259,78 @@ a:hover {
   content: "";
   display: table;
   clear: both;
+}
+
+/* --------------------------------------------------
+   Creative - minimal list layout
+-------------------------------------------------- */
+
+.creative-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.creative-entry {
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.creative-entry:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.creative-entry-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.4rem;
+}
+
+.creative-entry-header h3 {
+  margin: 0;
+}
+
+.entry-date {
+  color: #777;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+.creative-entry .bio-figure,
+.creative-entry img,
+.creative-entry .iframe-wrapper {
+  margin-top: 1rem;
+}
+
+/* --------------------------------------------------
+   Research - project cards
+-------------------------------------------------- */
+
+.project-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  margin-top: 1rem;
+}
+
+.project-card {
+  padding: 1.25rem 1.5rem;
+  background: #fafafa;
+  border: 1px solid #e0e0e0;
+  border-radius: 0.75rem;
+}
+
+.project-card h3 {
+  margin-top: 0;
+  margin-bottom: 0.4rem;
+}
+
+.project-card p:last-child {
+  margin-bottom: 0;
 }
 
 /* About paragraph spacing is defined earlier to keep text readable and consistent. */

@@ -1,0 +1,10 @@
+---
+const { id, extraClass = "" } = Astro.props;
+const className = ["block", "section-panel", extraClass]
+  .filter(Boolean)
+  .join(" ");
+---
+
+<section class={className} id={id || undefined}>
+  <slot />
+</section>
