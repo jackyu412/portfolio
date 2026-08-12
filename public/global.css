@@ -45,11 +45,6 @@
 html {
   min-height: 100%;
   background-color: #111;
-  background-image: var(--bg-image);
-  background-size: cover;
-  background-position: center -5%;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
   overflow-x: clip;
   scrollbar-gutter: stable;
 }
@@ -63,11 +58,16 @@ body {
   position: relative;
   z-index: 0;
   overflow-x: clip;
-  background: transparent;
+  background-color: #111;
+  background-image: var(--bg-image);
+  background-size: cover;
+  background-position: center -5%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 @media (max-width: 720px) {
-  html {
+  body {
     background-position: center top;
   }
 }
@@ -172,6 +172,13 @@ a:hover {
 .block {
   padding: 0;
   margin-bottom: 3rem;
+}
+
+/* Landing on /#about shouldn't jump past the Hero title and hide it
+   behind the sticky nav — this offset is taller than Hero + nav combined
+   so the browser clamps to the actual top of the page instead. */
+#about {
+  scroll-margin-top: 220px;
 }
 
 .block > .content-wrapper,

@@ -15,7 +15,7 @@ export default function Nav() {
         <span className="nav-toggle-bar" />
       </button>
       <div className={`nav-links${open ? ' open' : ''}`}>
-        <a href="/#about">About</a>
+        <a href="/">About</a>
         <a href="/research">Research</a>
         <a href="/resume">Resume</a>
         <a href="/contact">Contact</a>
