@@ -11,7 +11,7 @@ const {
 } = Astro.props;
 ---
 
-<html lang="en">
+<html lang="en" style={`--bg-image:url('${background.src}')`}>
   <head>
     <meta charset="UTF-8" />
     <title>{title}</title>
@@ -36,21 +36,21 @@ const {
     <link rel="preload" as="style" href="/global.css" />
     <style>
       html {
-        background: #111;
-      }
-
-      body {
-        background: #111;
+        background-color: #111;
         background-image: var(--bg-image);
         background-size: cover;
         background-position: center -5%;
         background-repeat: no-repeat;
         background-attachment: fixed;
+      }
+
+      body {
+        background: transparent;
         color: #111;
       }
     </style>
     <link rel="stylesheet" href="/global.css" />
-  </head><body style={`--bg-image:url('${background.src}')`}>
+  </head><body>
     <Hero name="Jack Yu" title={heroTitle} />
 
     <!-- Navigation appears first -->
