@@ -54,6 +54,7 @@ html {
   min-height: 100%;
   scroll-behavior: smooth;
   scrollbar-gutter: stable;
+  overscroll-behavior-y: none;
   background: var(--paper);
 }
 
@@ -619,7 +620,8 @@ a:hover {
     gap: var(--space-3);
     width: calc(100% - 2rem);
     max-width: 68ch;
-    padding-block: 1rem 2rem;
+    padding-top: 1rem;
+    padding-bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
   }
 
   .sidebar {
