@@ -87,8 +87,7 @@ const localDate = new Intl.DateTimeFormat("en-CA", {
           >
           <a
             href="/misc"
-            aria-current={currentPath === "/misc" ? "page" : undefined}
-            >misc</a
+            aria-current={currentPath === "/misc" ? "page" : undefined}>misc</a
           >
         </nav>
         <button
@@ -112,11 +111,9 @@ const localDate = new Intl.DateTimeFormat("en-CA", {
             data-email-reveal
           >
             <p class="contact-label" id="contact-label">contact</p>
-            <button
-              class="email-show"
-              type="button"
-              aria-expanded="false"
-            >show email</button>
+            <button class="email-show" type="button" aria-expanded="false"
+              >show email</button
+            >
             <div class="email-results" aria-live="polite" hidden></div>
             <noscript>
               <p>
