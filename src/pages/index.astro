@@ -1,52 +1,69 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import SectionPanel from "../components/SectionPanel.astro";
-import { Image } from "astro:assets";
-import headshot from "../assets/headshotcompressed.jpg";
 ---
 
-<Layout title="Jack Yu" description="Portfolio of Jack Yu">
-  <div class="content-wrapper">
-    <SectionPanel id="about" extraClass="about">
-      <h2>About Me</h2>
-      <Image
-        src={headshot}
-        alt="Jack Yu headshot"
-        class="image headshot"
-        width={180}
-        height={180}
-        priority
-      />
-
+<Layout
+  title="Jack Yu | Physics at Caltech"
+  description="I'm Jack Yu, a Caltech physics student working across experiment and computation, optics, quantum systems, and materials."
+>
+  <div class="home-intro-grid">
+    <section class="home-intro" aria-labelledby="home-title">
+      <h1 id="home-title">About Me</h1>
       <p>
-        I'm a sophomore studying at Caltech majoring in physics. I am broadly
-        interested in developing the robust instrumentation and techniques
-        required to realize emerging technological paradigms, including quantum
-        sensing, solid-state electrolytes, and nuclear fusion. So far, I have
-        worked in Caltech's
-        <a href="https://caltechexperimentalgravity.github.io/"
-          >Experimental Gravity Group</a
-        >, under Professor Rana Adhikari, where I simulate quantum states useful
-        for real-world quantum computing and quantum sensing at
-        <a href="https://www.ligo.caltech.edu/">LIGO</a>. I also work in the <a
-          href="https://cushinglab.caltech.edu/">Cushing Lab</a
-        >, where I develop spectroscopic instrumentation and techniques to study
-        how ions interact and move in solid-state electrolytes. Before Caltech,
-        I spent two summers in an optoelectronics R&D lab at Sandia National
-        Labs under Dr. Darwin Serkland and Dr. Alejandro Griñe.
+        I'm a sophomore physics major at Caltech. Very vaguely, I'm interested
+        in building instrumentation / experimental setups for things<sup
+          ><a
+            id="about-footnote-ref"
+            href="#about-footnote"
+            aria-label="Jump to footnote">1</a
+          ></sup
+        > that solve interesting problems.
       </p>
+      <aside class="footnote" id="about-footnote" aria-label="Footnote">
+        <p>
+          <sup>1</sup> Recently: quantum computing and sensing, energy storage, rare-earth
+          element extraction and separation, atomic clocks, and spectroscopy. <a
+            href="#about-footnote-ref"
+            aria-label="Back to sentence">↩</a
+          >
+        </p>
+      </aside>
+    </section>
 
-      <p>
-        Outside the lab, I compete on Caltech's NCAA swim team and enjoy
-        printmaking, photography, and reading science fiction.
-      </p>
-
-      <p class="bg-credit">
-        Background photo: microscope photo of a monolithic Indium Phosphide chip
-        developed by Infinera that processes data at 1.6&nbsp;terabits per
-        second using light instead of electrons. Colors are inverted from the
-        original for aesthetic effect.
-      </p>
-    </SectionPanel>
+    <div class="home-media">
+      <picture>
+        <source srcset="/images/headshot.avif" type="image/avif" />
+        <source srcset="/images/headshot.webp" type="image/webp" />
+        <img
+          class="headshot"
+          src="/images/headshotcompressed.jpg"
+          alt="Portrait of Jack Yu"
+          width="682"
+          height="910"
+          fetchpriority="high"
+        />
+      </picture>
+    </div>
   </div>
+
+  <section class="home-copy" aria-label="About Jack">
+    <p>
+      Right now, I'm doing research in Caltech's <a
+        href="https://caltechexperimentalgravity.github.io/"
+        >Experimental Gravity Group</a
+      >, working to simulate experiementally viable quantum states for quantum
+      computing and sensing at LIGO. Also, at the <a
+        href="https://cushinglab.caltech.edu/">Cushing Lab</a
+      >, I develop spectroscopic instrumentation to study ion motion in
+      solid-state electrolytes.
+    </p>
+    <p>
+      I previously spent two summers in an optoelectronics R&amp;D lab at Sandia
+      National Laboratories.
+    </p>
+    <p>
+      Outside the lab, I swim on Caltech's NCAA team, play around with
+      printmaking techniques, take photographs, and read science fiction.
+    </p>
+  </section>
 </Layout>

@@ -1,0 +1,54 @@
+---
+import { getCollection, render } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+
+const work = await getCollection("creative");
+const entries = await Promise.all(
+  work
+    .sort((a, b) => a.data.order - b.data.order)
+    .map(async (entry) => ({
+      ...entry,
+      Content: (await render(entry)).Content,
+    })),
+);
+---
+
+<Layout
+  title="Misc | Jack Yu"
+  description="Printmaking, photography, and other things made by Jack Yu."
+>
+  <header class="page-heading">
+    <h1>Misc</h1>
+    <p>Things made away from the lab.</p>
+  </header>
+  <div class="collection-list">
+    {
+      entries.map(({ data, Content }) => (
+        <article class="collection-entry">
+          <header class="entry-heading">
+            <h2>{data.title}</h2>
+            <p class="entry-meta">{data.year}</p>
+          </header>
+          <div class="entry-copy">
+            <Content />
+            {data.image === "fields" && (
+              <picture>
+                <source srcset="/images/fields.avif" type="image/avif" />
+                <source srcset="/images/fields.webp" type="image/webp" />
+                <img
+                  class="entry-image"
+                  src="/images/fieldscompressed.jpg"
+                  alt="Fields, a layered printwork with historic imagery of light and interference patterns"
+                  width="1359"
+                  height="830"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </picture>
+            )}
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</Layout>

@@ -1,155 +1,50 @@
 ---
+import { getCollection, render } from "astro:content";
 import Layout from "../layouts/Layout.astro";
-import SectionPanel from "../components/SectionPanel.astro";
+
+const work = await getCollection("research");
+const entries = await Promise.all(
+  work
+    .sort((a, b) => a.data.order - b.data.order)
+    .map(async (entry) => ({
+      ...entry,
+      Content: (await render(entry)).Content,
+    })),
+);
 ---
 
-<Layout
-  title="Research | Jack Yu"
-  description="Research work and publications of Jack Yu"
->
-  <div class="content-wrapper">
-    <SectionPanel extraClass="research-card">
-      <h2>Publications</h2>
-      <p>
-        <a
-          href="https://www.spiedigitallibrary.org/profile/Darwin.Serkland-20137"
-          >Darwin K. Serkland</a
-        >,
-        <a
-          href="https://www.spiedigitallibrary.org/profile/notfound?author=Alejandro_Grine"
-          >Alejandro J. Grine</a
-        >,
-        <a
-          href="https://www.spiedigitallibrary.org/profile/Ping-Show.Wong-100066"
-          >Ping-Show Wong</a
-        >, et al. <strong>Jack Yu</strong>. "Noise characterization of VCSELs
-        for atomic clocks and magnetometers", <em>Proc. SPIE</em> PC13911, Vertical-Cavity
-        Surface-Emitting Lasers XXX, PC1391109 (5 Mar 2026);
-        <a href="https://doi.org/10.1117/12.3082136"
-          >https://doi.org/10.1117/12.3082136</a
-        >
-        <span class="pub-tag">Conference Paper</span>
-      </p>
-      <i>(More to come!)</i>
-    </SectionPanel>
-
-    <SectionPanel extraClass="research-card">
-      <h2>Projects</h2>
-
-      <div class="project-list">
-        <div class="project-card">
-          <h3>Peltier-Cooled Sample Stage for LUIS</h3>
-          <p>
-            Designed a thermoelectric (Peltier) temperature-controlled sample
-            stage for Laser-driven Ultrafast Impedance Spectroscopy (LUIS), to
-            enable temperature-dependent studies of phonon-mediated ion
-            transport in solid-state electrolytes. The broader goal is to
-            eventually freeze out phonon modes, though by the Bose-Einstein
-            distribution, Peltier cooling alone only freezes out a limited range
-            of modes. This stage instead serves as a proof of concept for
-            general temperature control in LUIS. The design is also modular,
-            allowing it to support the SMIM technique used elsewhere in the
-            Cushing Lab.
-          </p>
-          <!-- TODO: add a photo/CAD render if available, e.g.:
-          <Lightbox src="/images/peltier-stage-compressed.jpg" fullSizeSrc="/images/peltier-stage.jpg" alt="Peltier cooling stage design" client:load />
-          -->
-        </div>
-
-        <div class="project-card">
-          <h3>Littman–Metcalf External Cavity Diode Laser (ECDL)</h3>
-          <p>
-            Designed, constructed, and characterized a Littman–Metcalf external
-            cavity diode laser for AR coating evaluation as part of DARPA H6
-            research at Sandia National Laboratories.
-          </p>
-        </div>
-
-        <div class="project-card">
-          <h3>PyCamGUI</h3>
-          <p>
-            A Python GUI for the Raspberry Pi camera built with PyQt5 and
-            picamera2, with live preview, still capture, video recording, focus
-            controls, cropping, preview rotation, and theme toggling.
-          </p>
-          <p>
-            <a
-              href="https://github.com/jackyu412/pi-camera-gui"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              View on GitHub →
-            </a>
-          </p>
-        </div>
-      </div>
-    </SectionPanel>
-
-    <SectionPanel extraClass="research-card">
-      <h2>Research Experience</h2>
-      <ul class="research-list">
-        <li>
-          <strong
-            >Summer 2026 — William N. Lacey SURF Research Fellow, Cushing Lab</strong
-          >
-          <ul>
-            <li>
-              Modeled lattice anharmonicity in Na₃PS₄ using density functional
-              theory (DFT) to investigate ion transport mechanisms.
-            </li>
-            <li>
-              Designed and integrated a thermoelectric temperature-controlled
-              stage for Laser-driven Ultrafast Impedance Spectroscopy (LUIS) to
-              enable temperature-dependent studies of phonon-mediated ion
-              transport.
-            </li>
-          </ul>
-        </li>
-        <li>
-          <strong
-            >Jan 2026 – Present — Student Researcher, Experimental Gravity Group
-            (EGG)</strong
-          >
-          <ul>
-            <li>
-              Designed and simulated experimentally viable non-Gaussian photonic
-              quantum states using Strawberry Fields (TensorFlow backend) and
-              QuTiP.
-            </li>
-            <li>
-              Formulated and optimized high-dimensional optical circuit
-              parameters for multi-mode beam splitter and squeezer networks
-              under realistic photon-loss and noise models.
-            </li>
-            <li>
-              Accelerated large-scale optimization by leveraging Caltech’s HPC
-              cluster to parallelize computationally intensive parameter
-              searches and fidelity evaluations.
-            </li>
-          </ul>
-        </li>
-        <li>
-          <strong
-            >Jun 2024 – Sep 2025 — Optoelectronics Intern, Sandia National
-            Laboratories</strong
-          >
-          <ul>
-            <li>
-              Conducted DARPA H6 research developing and characterizing a
-              piezo-tunable etalon for chip-scale atomic clocks through
-              frequency stability and noise analysis.
-            </li>
-            <li>
-              Characterized VCSELs using probe-station measurements and device
-              modeling to optimize laser performance.
-            </li>
-            <li>
-              Designed, constructed, and characterized a Littman–Metcalf
-              external cavity diode laser (ECDL) for AR coating evaluation.
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </SectionPanel>
+<Layout title="Research | Jack Yu">
+  <header class="page-heading">
+    <h1>Research</h1>
+    <p>What I've been twiddling my thumbs about.</p>
+  </header>
+  <div class="collection-list">
+    {
+      entries.map(({ data, Content }) => (
+        <article class="collection-entry">
+          <header class="entry-heading">
+            <h2>{data.title}</h2>
+            <p class="entry-meta">
+              {data.institution}
+              <br />
+              {data.dates}
+            </p>
+          </header>
+          <div class="entry-copy">
+            <Content />
+          </div>
+        </article>
+      ))
+    }
   </div>
+  <section class="research-publication" aria-labelledby="publication-heading">
+    <h2 id="publication-heading">Publication</h2>
+    <p>
+      D. K. Serkland, A. J. Grine, P.-S. Wong, <strong>Jack Yu</strong>.
+      <cite>“Noise Characterization of VCSELs for Atomic Clocks and Magnetometers.”</cite>
+      <em>Proceedings of SPIE</em>, Vol. PC13911, Vertical-Cavity Surface-Emitting
+      Lasers XXX, 2026.
+      <a href="https://doi.org/10.1117/12.3082136">doi:10.1117/12.3082136</a>.
+    </p>
+  </section>
 </Layout>

@@ -1,12 +1,9 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
-import react from '@astrojs/react';
 
-// https://astro.build/config
 export default defineConfig({
-  integrations: [react()],
-  // site: 'https://astronaut.github.io',
-  // base: 'my-repo',
+  output: 'static',
+  site: 'https://jacksyu.com',
 });
 
 

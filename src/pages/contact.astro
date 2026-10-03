@@ -1,39 +1,27 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import SectionPanel from "../components/SectionPanel.astro";
 ---
 
-<Layout title="Contact | Jack Yu" description="Contact Jack Yu">
-  <div class="content-wrapper">
-    <SectionPanel id="contact">
-      <h2>Contact</h2>
-      <p>Click the button below to reveal my email address.</p>
-
-      <button id="reveal-email" class="button">Reveal email</button>
-      <div id="email-output" aria-live="polite" style="margin-top: 1rem;"></div>
-    </SectionPanel>
-  </div>
-
-  <script is:inline>
-    const revealButton = document.getElementById("reveal-email");
-    const emailOutput = document.getElementById("email-output");
-
-    if (revealButton && emailOutput) {
-      revealButton.addEventListener("click", () => {
-        const user = atob("amFja3l1");
-        const domain = atob("Y2FsdGVjaC5lZHU=");
-        const email = `${user}@${domain}`;
-
-        const link = document.createElement("a");
-        link.href = `mailto:${email}`;
-        link.textContent = email;
-        link.style.color = "dodgerblue";
-        link.style.textDecoration = "underline";
-
-        emailOutput.innerHTML = "";
-        emailOutput.appendChild(link);
-        revealButton.style.display = "none";
-      });
-    }
-  </script>
+<Layout
+  title="Contact | Jack Yu"
+  description="Contact Jack Yu at Caltech and LIGO."
+  showBackground={false}
+>
+  <article class="text-page">
+    <header class="page-heading">
+      <h1>Contact</h1>
+    </header>
+    <p>
+      Email is probably the best way to reach me. Click “show email” below to
+      reveal it. Also, feel free to send me good sci-fi recommendations. I just
+      finished Solaris by Stanisław Lem and am looking for what to read next.
+    </p>
+    <p>
+      <a
+        href="https://www.linkedin.com/in/jack-s-yu"
+        target="_blank"
+        rel="noopener noreferrer">LinkedIn</a
+      >
+    </p>
+  </article>
 </Layout>
