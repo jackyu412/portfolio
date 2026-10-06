@@ -1,10 +1,12 @@
 ---
 import CrtBackground from "../components/CrtBackground.astro";
+import { ClientRouter } from "astro:transitions";
 const {
   title = "Jack Yu | Physics at Caltech",
   description = "Jack Yu is a Caltech physics student working across experimental and computational physics.",
   showBackground = true,
-  gain = 0.34,
+  gain = 0.22,
+  bgLevel = 1,
   noIndex = false,
 } = Astro.props;
 const currentPath = Astro.url.pathname;
@@ -31,6 +33,7 @@ const localDate = new Intl.DateTimeFormat("en-CA", {
 <!doctype html>
 <html lang="en">
   <head>
+    <ClientRouter />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
@@ -56,12 +59,12 @@ const localDate = new Intl.DateTimeFormat("en-CA", {
     />
     <link rel="stylesheet" href="/global.css" />
   </head>
-  <body>
+  <body data-bg-level={bgLevel}>
     {
       showBackground && (
         <CrtBackground
           gain={gain}
-          selectors=".sidebar, .content-column h1, .content-column p"
+          selectors=".content-column h1, .content-column h2, .content-column h3, .content-column p, .content-column li, .content-column figcaption, .content-column time, .content-footer button, .content-footer a"
         />
       )
     }
@@ -110,11 +113,13 @@ const localDate = new Intl.DateTimeFormat("en-CA", {
             aria-labelledby="contact-label"
             data-email-reveal
           >
-            <p class="contact-label" id="contact-label">contact</p>
-            <button class="email-show" type="button" aria-expanded="false"
-              >show email</button
-            >
-            <div class="email-results" aria-live="polite" hidden></div>
+            <div class="contact-actions">
+              <p class="contact-label" id="contact-label">contact</p>
+              <button class="email-show" type="button" aria-expanded="false"
+                >show email</button
+              >
+              <div class="email-results" aria-live="polite" hidden></div>
+            </div>
             <noscript>
               <p>
                 jackyu [at] caltech [dot] edu<br />jack.yu [at] ligo [dot] org

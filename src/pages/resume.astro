@@ -5,159 +5,138 @@ import Layout from "../layouts/Layout.astro";
 <Layout
   title="Resume | Jack Yu"
   description="Resume of Jack Yu, Caltech physics student."
-  gain={0}
+  bgLevel={0.3}
   noIndex={true}
 >
   <article class="resume-page">
     <header class="resume-header">
       <h1>Jack Yu</h1>
-      <p>B.S. Physics · California Institute of Technology</p>
+      <nav class="resume-contact" aria-label="Contact links">
+        <a href="tel:+17627288971">+1 (762) 728-8971</a>
+        <span aria-hidden="true">|</span>
+        <a href="mailto:jackyu@caltech.edu">jackyu@caltech.edu</a>
+        <span aria-hidden="true">|</span>
+        <a href="https://jacksyu.com">jacksyu.com</a>
+        <span aria-hidden="true">|</span>
+        <a href="https://linkedin.com/in/jack-s-yu">jack-s-yu</a>
+      </nav>
     </header>
 
     <section class="resume-section" aria-labelledby="education-heading">
       <h2 id="education-heading">Education</h2>
-      <article class="resume-entry">
-        <div class="resume-entry-heading">
-          <h3>California Institute of Technology</h3>
-          <time datetime="2029-06">Expected June 2029</time>
-        </div>
-        <p class="resume-entry-subtitle">
-          B.S. in Physics · Pasadena, CA · GPA: 4.1 · Sophomore
-        </p>
-        <p>
-          <strong>Coursework:</strong> Quantum Mechanics, Electromagnetism, Classical
-          Mechanics, Linear Algebra, Abstract Algebra, Statistical Mechanics, Differential
-          Equations, Multivariable Calculus.
-        </p>
-      </article>
-      <article class="resume-entry">
-        <div class="resume-entry-heading">
-          <h3>Albuquerque Academy</h3>
-          <span
-            ><time datetime="2020">2020</time>–<time datetime="2025">2025</time
-            ></span
-          >
-        </div>
-        <p class="resume-entry-subtitle">Albuquerque, NM</p>
-      </article>
+      <div class="resume-entry-heading">
+        <h3>California Institute of Technology <span>· Pasadena, CA</span></h3>
+        <time datetime="2029-06">Expected Jun. 2029</time>
+      </div>
+      <p class="resume-entry-subtitle">
+        B.S. in Physics <span>·</span> GPA: 4.1 <span>·</span> Sophomore
+      </p>
+      <p class="resume-coursework">
+        <strong>Coursework:</strong> Quantum Mechanics, Linear Algebra, Abstract
+        Algebra, Differential Equations, Statistical Mechanics, Multivariable
+        Calculus, Classical Mechanics, Electromagnetism, Micro/Nanofabrication
+        Lab
+      </p>
     </section>
 
-    <section class="resume-section" aria-labelledby="experience-heading">
-      <h2 id="experience-heading">Experience</h2>
+    <section class="resume-section" aria-labelledby="research-heading">
+      <h2 id="research-heading">Research Experience</h2>
       <article class="resume-entry">
         <div class="resume-entry-heading">
-          <h3>William N. Lacey SURF Research Fellow · Cushing Lab</h3>
-          <time datetime="2026">Summer 2026</time>
+          <h3>Student Researcher — Experimental Gravity Group (EGG) <span>· Caltech</span></h3>
+          <time datetime="2026-01">Jan 2026 – Present</time>
         </div>
-        <p class="resume-entry-subtitle">Caltech · Pasadena, CA</p>
+        <p class="resume-entry-subtitle">Pasadena, CA</p>
         <ul>
           <li>
-            Designed and integrated a thermoelectric temperature-controlled
-            stage for Laser-driven Ultrafast Impedance Spectroscopy (LUIS),
-            enabling temperature-dependent studies of phonon-mediated ion
+            Developed numerical methods to design non-Gaussian photonic quantum
+            states for quantum sensing and computation using QuTiP and
+            Strawberry Fields.
+          </li>
+          <li>
+            Formulated multi-mode beam-splitter and squeezing circuits as
+            high-dimensional parameter optimization problems, maximizing
+            target-state fidelity under photon loss and phase noise.
+          </li>
+          <li>
+            Implemented large-scale quantum state simulations and numerical
+            optimization in Python, using NumPy, SciPy, TensorFlow, and HPC
+            resources to parallelize parameter searches and fidelity
+            calculations.
+          </li>
+          <li>
+            Investigated how circuit architecture, squeezing parameters, loss,
+            and measurement choices affect the achievable quality of generated
+            quantum states.
+          </li>
+        </ul>
+      </article>
+
+      <article class="resume-entry">
+        <div class="resume-entry-heading">
+          <h3>William N. Lacey SURF Research Fellow — Cushing Lab <span>· Caltech</span></h3>
+          <time>Summer 2026</time>
+        </div>
+        <p class="resume-entry-subtitle">Pasadena, CA</p>
+        <ul>
+          <li>
+            Investigated microscopic mechanisms of ion transport in solid-state
+            electrolytes through computational modeling and temperature-dependent
+            spectroscopy.
+          </li>
+          <li>
+            Modeled lattice anharmonicity in Na<sub>3</sub>PS<sub>4</sub> using
+            density functional theory (DFT) to study phonon-mediated ion
             transport.
           </li>
           <li>
-            Modeled lattice anharmonicity in Na<sub>3</sub>PS<sub>4</sub> using density
-            functional theory (DFT) to investigate ion transport mechanisms.
+            Designed and integrated a thermoelectric temperature-control system
+            for Laser-driven Ultrafast Impedance Spectroscopy (LUIS).
           </li>
         </ul>
       </article>
+
       <article class="resume-entry">
         <div class="resume-entry-heading">
-          <h3>Student Researcher · Experimental Gravity Group (EGG)</h3>
-          <span><time datetime="2026-01">Jan 2026</time>–Present</span>
-        </div>
-        <p class="resume-entry-subtitle">Caltech · Pasadena, CA</p>
-        <ul>
-          <li>
-            Designed and simulated experimentally viable non-Gaussian photonic
-            quantum states using Strawberry Fields (TensorFlow backend) and
-            QuTiP.
-          </li>
-          <li>
-            Formulated and optimized high-dimensional optical circuit parameters
-            for multi-mode beam splitter and squeezer networks under realistic
-            photon-loss and noise models.
-          </li>
-          <li>
-            Used Caltech's high-performance computing cluster to parallelize
-            computationally intensive parameter searches and fidelity
-            evaluations.
-          </li>
-        </ul>
-      </article>
-      <article class="resume-entry">
-        <div class="resume-entry-heading">
-          <h3>
-            Optoelectronics Intern · Sandia National Laboratories, III-V
-            Photonics Center
-          </h3>
-          <span
-            ><time datetime="2024-06">Jun 2024</time>–<time datetime="2025-09"
-              >Sep 2025</time
-            ></span
-          >
+          <h3>Optoelectronics Intern <span>· Sandia National Laboratories — III-V Photonics Center</span></h3>
+          <time datetime="2024-06">Jun 2024 – Sep 2025</time>
         </div>
         <p class="resume-entry-subtitle">Albuquerque, NM</p>
         <ul>
           <li>
-            Conducted DARPA H6 research developing a piezo-tunable etalon for
-            chip-scale atomic clocks.
+            Conducted R&amp;D for the DARPA H6 program developing a
+            piezo-tunable Fabry–Pérot etalon for chip-scale atomic clocks.
           </li>
           <li>
-            Characterized VCSELs using probe-station measurements and device
-            modeling to optimize laser performance.
+            Characterized VCSEL devices through probe-station measurements and
+            quantitative analysis of laser performance.
           </li>
         </ul>
       </article>
     </section>
 
-    <section class="resume-section" aria-labelledby="projects-heading">
-      <h2 id="projects-heading">Projects</h2>
+    <section class="resume-section" aria-labelledby="project-heading">
+      <h2 id="project-heading">Selected Project</h2>
       <article class="resume-entry">
         <div class="resume-entry-heading">
-          <h3>Hexagonal Non-Gaussian State Generation</h3>
+          <h3>Hexagonal Non-Gaussian State Generation <span>· Python, QuTiP, Strawberry Fields</span></h3>
           <time datetime="2026">2026</time>
         </div>
-        <p class="resume-entry-subtitle">
-          Caltech EGG · Python, QuTiP, Strawberry Fields
-        </p>
+        <p class="resume-entry-subtitle">Caltech EGG</p>
         <ul>
           <li>
-            Designed and optimized multi-mode photonic circuits to generate a
-            target non-Gaussian quantum state.
+            Designed parameterized multi-mode photonic circuits to generate a
+            target hexagonal non-Gaussian quantum state.
           </li>
           <li>
-            Parameterized circuit architecture, squeezing profiles, and mode
-            allocations to maximize fidelity under photon loss.
+            Optimized squeezing profiles, circuit parameters, and mode
+            allocations to maximize state fidelity under realistic photon-loss
+            models.
           </li>
           <li>
-            Implemented high-dimensional numerical optimization and large-scale
-            quantum-state simulations in Python.
-          </li>
-        </ul>
-      </article>
-      <article class="resume-entry">
-        <div class="resume-entry-heading">
-          <h3>External Cavity Diode Laser (ECDL) System</h3>
-          <span
-            ><time datetime="2024">2024</time>–<time datetime="2025">2025</time
-            ></span
-          >
-        </div>
-        <p class="resume-entry-subtitle">
-          Sandia National Laboratories · SolidWorks, Python
-        </p>
-        <ul>
-          <li>
-            Designed and constructed a Littman–Metcalf ECDL for
-            antireflection-coating characterization and machined custom mounts.
-          </li>
-          <li>
-            Developed protocols for frequency-stability and mode-hop-free tuning
-            characterization; modeled vacuum-compatible optomechanical
-            components in SolidWorks.
+            Built numerical simulation and optimization workflows for
+            high-dimensional quantum states and evaluated performance across
+            circuit configurations.
           </li>
         </ul>
       </article>
@@ -167,55 +146,48 @@ import Layout from "../layouts/Layout.astro";
       <h2 id="publication-heading">Publication</h2>
       <p class="resume-publication">
         D. K. Serkland, A. J. Grine, P.-S. Wong, <strong>Jack Yu</strong>.
-        “Noise Characterization of VCSELs for Atomic Clocks and Magnetometers.” <em
-          >Proceedings of SPIE</em
-        >, Vol. PC13911, Vertical-Cavity Surface-Emitting Lasers XXX, 2026. <a
-          href="https://doi.org/10.1117/12.3082136">doi:10.1117/12.3082136</a
-        >.
+        <em>Noise Characterization of VCSELs for Atomic Clocks and Magnetometers.</em>
+        Proceedings of SPIE, Vol. PC13911, Vertical-Cavity Surface-Emitting
+        Lasers XXX, 2026.
       </p>
     </section>
 
     <section class="resume-section" aria-labelledby="skills-heading">
-      <h2 id="skills-heading">Technical skills</h2>
+      <h2 id="skills-heading">Technical Skills</h2>
       <dl class="resume-skills">
         <div>
-          <dt>Programming &amp; tools</dt><dd>
-            Python, Java, Git, LaTeX, MATLAB
-          </dd>
+          <dt>Programming</dt>
+          <dd>Python, Java, MATLAB, Git, LaTeX</dd>
         </div>
         <div>
-          <dt>Quantum simulation</dt><dd>
-            QuTiP, Strawberry Fields, PennyLane, numerical optimization
-          </dd>
+          <dt>Quantum Computing</dt>
+          <dd>QuTiP, Strawberry Fields, Quantum State Simulation</dd>
         </div>
         <div>
-          <dt>Scientific computing</dt><dd>
-            NumPy, SciPy, PyTorch, TensorFlow, DFT (Quantum ESPRESSO)
-          </dd>
+          <dt>Scientific Computing</dt>
+          <dd>NumPy, SciPy, TensorFlow, Numerical Optimization, DFT</dd>
         </div>
         <div>
-          <dt>Engineering &amp; CAD</dt><dd>
-            SolidWorks, KiCad, PCB design, 3D printing, manual machining, wire
-            bonding
-          </dd>
+          <dt>Micro/Nanofabrication</dt>
+          <dd>Electron-Beam Lithography, Optical Lithography, AFM, SEM, Microfluidics</dd>
         </div>
         <div>
-          <dt>Experimental laboratory</dt><dd>
-            Optical alignment, laser characterization, probe station
-          </dd>
+          <dt>Experimental</dt>
+          <dd>Optical Alignment, Probe Station, PCB Design, Device Characterization</dd>
         </div>
       </dl>
     </section>
 
     <section class="resume-section" aria-labelledby="awards-heading">
-      <h2 id="awards-heading">Selected awards</h2>
-      <ul>
+      <h2 id="awards-heading">Selected Awards</h2>
+      <ul class="resume-awards">
         <li>
-          <strong>AIME qualifier</strong> · American Mathematics Invitational Examination
+          <strong>AIME Qualifier</strong>
+          <span>— American Mathematics Invitational Examination</span>
         </li>
         <li>
-          <strong>NISCA All-American</strong> · Top 100 in the U.S., 200 Medley Relay
-          · <time datetime="2025-06">June 2025</time>
+          <strong>NISCA All-American</strong>
+          <span>— Top 100 in the US, 200 Medley Relay, Jun 2025</span>
         </li>
       </ul>
     </section>
@@ -224,16 +196,20 @@ import Layout from "../layouts/Layout.astro";
       <h2 id="activities-heading">Extracurriculars</h2>
       <div class="resume-entry">
         <div class="resume-entry-heading">
-          <h3>NCAA Division III Varsity Swim Team · Caltech</h3>
-          <span><time datetime="2025">2025</time>–Present</span>
+          <h3>NCAA Division III Varsity Swim Team <span>· Caltech</span></h3>
+          <time>2025 – Present</time>
         </div>
         <div class="resume-entry-heading">
-          <h3>Chamber Music Ensemble (Piano) · Caltech</h3>
-          <span>Present</span>
+          <h3>Chamber Music Ensemble (Piano) <span>· Caltech</span></h3>
+          <time>Present</time>
         </div>
       </div>
     </section>
 
-    <button class="resume-download" type="button">download pdf</button>
+    <a
+      class="resume-download"
+      href="/files/resume.pdf"
+      download="Jack-Yu-Resume.pdf"
+    >download pdf</a>
   </article>
 </Layout>

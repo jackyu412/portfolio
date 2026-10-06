@@ -1,8 +1,8 @@
 ---
-title: Cushing Lab
-institution: Caltech
+title: SURF Research Fellowship
+institution: Cushing Lab @ Caltech
 dates: Summer 2026
 order: 2
 ---
 
-At the Cushing Lab, I develop spectroscopic instrumentation and techniques for studying ion motion in solid-state electrolytes. My projects have included modeling Na3PS4 with density functional theory and building a Peltier-cooled sample stage for temperature-dependent impedance spectroscopy.
+I helped develop spectroscopic instrumentation and techniques for studying ionic motion in solid-state electrolytes, specifically [Laser-driven Ultrafast Impedance Spectroscopy (LUIS)](https://pubs.aip.org/aip/rsi/article/95/7/073004/3303936/Laser-driven-ultrafast-impedance-spectroscopy-for). To better understand the mechanisms between phonons and ions in these materials, I built a Peltier-cooled sample stage, which changes the initial phonon population -- enabling temperature-dependent measurements.

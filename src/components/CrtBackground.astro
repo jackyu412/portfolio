@@ -1,13 +1,14 @@
 ---
 const {
-  gain = 0.34,
+  gain = 0.22,
   cell = 3.8,
-  selectors = ".sidebar, .content-column h1, .content-column p",
+  selectors = ".content-column h1, .content-column h2, .content-column h3, .content-column p, .content-column li, .content-column figcaption, .content-column time, .content-footer button, .content-footer a",
 } = Astro.props;
 ---
 
 <canvas
   id="crt-bg"
+  transition:persist
   class="ambient-canvas"
   aria-hidden="true"
   data-gain={gain}
@@ -17,16 +18,28 @@ const {
 <style is:global>
   #crt-bg {
     position: fixed;
-    z-index: -1;
+    z-index: 0;
     inset: 0;
     display: block;
     width: 100%;
     height: 100%;
+    max-width: none;
     pointer-events: none;
+  }
+
+  @keyframes crt-bg-fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
   }
 
   #crt-bg[hidden] {
     display: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #crt-bg {
+      animation-duration: 0.01ms;
+    }
   }
 
   @media print {
