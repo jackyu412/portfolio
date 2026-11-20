@@ -412,6 +412,11 @@ button:focus-visible {
   margin-bottom: 0;
 }
 
+.entry-copy {
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
 .entry-copy picture,
 .entry-copy img {
   display: block;

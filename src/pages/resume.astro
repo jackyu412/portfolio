@@ -2,12 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout
-  title="Resume | Jack Yu"
-  description="Resume of Jack Yu, Caltech physics student."
-  bgLevel={0.3}
-  noIndex={true}
->
+<Layout title="Resume | Jack Yu" bgLevel={0.3} noIndex={true}>
   <article class="resume-page">
     <header class="resume-header">
       <h1>Jack Yu</h1>
@@ -25,7 +20,9 @@ import Layout from "../layouts/Layout.astro";
     <section class="resume-section" aria-labelledby="education-heading">
       <h2 id="education-heading">Education</h2>
       <div class="resume-entry-heading">
-        <h3>California Institute of Technology <span>· Pasadena, CA</span></h3>
+        <h3>
+          California Institute of Technology <span>· Pasadena, CA</span>
+        </h3>
         <time datetime="2029-06">Expected Jun. 2029</time>
       </div>
       <p class="resume-entry-subtitle">
@@ -43,7 +40,10 @@ import Layout from "../layouts/Layout.astro";
       <h2 id="research-heading">Research Experience</h2>
       <article class="resume-entry">
         <div class="resume-entry-heading">
-          <h3>Student Researcher — Experimental Gravity Group (EGG) <span>· Caltech</span></h3>
+          <h3>
+            Student Researcher — Experimental Gravity Group (EGG){" "}
+            <span>· Caltech</span>
+          </h3>
           <time datetime="2026-01">Jan 2026 – Present</time>
         </div>
         <p class="resume-entry-subtitle">Pasadena, CA</p>
@@ -74,15 +74,18 @@ import Layout from "../layouts/Layout.astro";
 
       <article class="resume-entry">
         <div class="resume-entry-heading">
-          <h3>William N. Lacey SURF Research Fellow — Cushing Lab <span>· Caltech</span></h3>
+          <h3>
+            William N. Lacey SURF Research Fellow — Cushing Lab{" "}
+            <span>· Caltech</span>
+          </h3>
           <time>Summer 2026</time>
         </div>
         <p class="resume-entry-subtitle">Pasadena, CA</p>
         <ul>
           <li>
             Investigated microscopic mechanisms of ion transport in solid-state
-            electrolytes through computational modeling and temperature-dependent
-            spectroscopy.
+            electrolytes through computational modeling and
+            temperature-dependent spectroscopy.
           </li>
           <li>
             Modeled lattice anharmonicity in Na<sub>3</sub>PS<sub>4</sub> using
@@ -98,7 +101,10 @@ import Layout from "../layouts/Layout.astro";
 
       <article class="resume-entry">
         <div class="resume-entry-heading">
-          <h3>Optoelectronics Intern <span>· Sandia National Laboratories — III-V Photonics Center</span></h3>
+          <h3>
+            Optoelectronics Intern{" "}
+            <span>· Sandia National Laboratories — III-V Photonics Center</span>
+          </h3>
           <time datetime="2024-06">Jun 2024 – Sep 2025</time>
         </div>
         <p class="resume-entry-subtitle">Albuquerque, NM</p>
@@ -119,7 +125,10 @@ import Layout from "../layouts/Layout.astro";
       <h2 id="project-heading">Selected Project</h2>
       <article class="resume-entry">
         <div class="resume-entry-heading">
-          <h3>Hexagonal Non-Gaussian State Generation <span>· Python, QuTiP, Strawberry Fields</span></h3>
+          <h3>
+            Hexagonal Non-Gaussian State Generation{" "}
+            <span>· Python, QuTiP, Strawberry Fields</span>
+          </h3>
           <time datetime="2026">2026</time>
         </div>
         <p class="resume-entry-subtitle">Caltech EGG</p>
@@ -146,7 +155,9 @@ import Layout from "../layouts/Layout.astro";
       <h2 id="publication-heading">Publication</h2>
       <p class="resume-publication">
         D. K. Serkland, A. J. Grine, P.-S. Wong, <strong>Jack Yu</strong>.
-        <em>Noise Characterization of VCSELs for Atomic Clocks and Magnetometers.</em>
+        <em>
+          Noise Characterization of VCSELs for Atomic Clocks and Magnetometers.
+        </em>
         Proceedings of SPIE, Vol. PC13911, Vertical-Cavity Surface-Emitting
         Lasers XXX, 2026.
       </p>
@@ -169,11 +180,17 @@ import Layout from "../layouts/Layout.astro";
         </div>
         <div>
           <dt>Micro/Nanofabrication</dt>
-          <dd>Electron-Beam Lithography, Optical Lithography, AFM, SEM, Microfluidics</dd>
+          <dd>
+            Electron-Beam Lithography, Optical Lithography, AFM, SEM,
+            Microfluidics
+          </dd>
         </div>
         <div>
           <dt>Experimental</dt>
-          <dd>Optical Alignment, Probe Station, PCB Design, Device Characterization</dd>
+          <dd>
+            Optical Alignment, Probe Station, PCB Design, Device
+            Characterization
+          </dd>
         </div>
       </dl>
     </section>
@@ -196,11 +213,15 @@ import Layout from "../layouts/Layout.astro";
       <h2 id="activities-heading">Extracurriculars</h2>
       <div class="resume-entry">
         <div class="resume-entry-heading">
-          <h3>NCAA Division III Varsity Swim Team <span>· Caltech</span></h3>
+          <h3>
+            NCAA Division III Varsity Swim Team <span>· Caltech</span>
+          </h3>
           <time>2025 – Present</time>
         </div>
         <div class="resume-entry-heading">
-          <h3>Chamber Music Ensemble (Piano) <span>· Caltech</span></h3>
+          <h3>
+            Chamber Music Ensemble (Piano) <span>· Caltech</span>
+          </h3>
           <time>Present</time>
         </div>
       </div>
@@ -210,6 +231,8 @@ import Layout from "../layouts/Layout.astro";
       class="resume-download"
       href="/files/resume.pdf"
       download="Jack-Yu-Resume.pdf"
-    >download pdf</a>
+    >
+      download pdf
+    </a>
   </article>
 </Layout>

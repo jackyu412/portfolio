@@ -13,53 +13,48 @@ const entries = await Promise.all(
 );
 ---
 
-<Layout
-  title="Misc | Jack Yu"
-  description="Printmaking, photography, and other things made by Jack Yu."
->
+<Layout title="Misc | Jack Yu">
   <header class="page-heading">
     <h1>Misc</h1>
     <p>Things made away from the lab.</p>
   </header>
   <div class="collection-list">
-    {
-      entries.map(({ data, Content }) => (
-        <article class="collection-entry">
-          <header class="entry-heading">
-            <h2>{data.title}</h2>
-            <p class="entry-meta">{data.year}</p>
-          </header>
-          <div class="entry-copy">
-            <Content />
-            {data.image === "fields" && (
-              <picture>
-                <source srcset="/images/fields.avif" type="image/avif" />
-                <source srcset="/images/fields.webp" type="image/webp" />
-                <img
-                  class="entry-image"
-                  src="/images/fieldscompressed.jpg"
-                  alt="Fields, a layered printwork with historic imagery of light and interference patterns"
-                  width="1359"
-                  height="830"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </picture>
-            )}
-            {data.title === "3-in-1 Magnetic Ruler Clip" && (
-              <div class="printables-embed">
-                <iframe
-                  src="https://www.printables.com/embed/1403182"
-                  title="3-in-1 Magnetic Ruler Clip on Printables"
-                  loading="lazy"
-                  referrerpolicy="strict-origin-when-cross-origin"
-                  allowfullscreen
-                />
-              </div>
-            )}
-          </div>
-        </article>
-      ))
-    }
+    {entries.map(({ data, Content }) => (
+      <article class="collection-entry">
+        <header class="entry-heading">
+          <h2>{data.title}</h2>
+          <p class="entry-meta">{data.year}</p>
+        </header>
+        <div class="entry-copy">
+          <Content />
+          {data.image === "fields" && (
+            <picture>
+              <source srcset="/images/fields.avif" type="image/avif" />
+              <source srcset="/images/fields.webp" type="image/webp" />
+              <img
+                class="entry-image"
+                src="/images/fieldscompressed.jpg"
+                alt="Fields, a layered printwork with historic imagery of light and interference patterns"
+                width="1359"
+                height="830"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
+          )}
+          {data.title === "3-in-1 Magnetic Ruler Clip" && (
+            <div class="printables-embed">
+              <iframe
+                src="https://www.printables.com/embed/1403182"
+                title="3-in-1 Magnetic Ruler Clip on Printables"
+                loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              />
+            </div>
+          )}
+        </div>
+      </article>
+    ))}
   </div>
 </Layout>
